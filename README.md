@@ -36,7 +36,7 @@
 ## Installation
 1. Clone the repository.
 2. Install the required dependencies:
-    npm install
-    install visual studio installer
-       - install Desktop Development C++
-    install python v3.13
+    - npm install
+    - install visual studio installer
+    - install Desktop Development C++
+    - install python v3.13
