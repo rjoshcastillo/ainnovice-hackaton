@@ -1,0 +1,271 @@
+patient_id,age,gender,employed,job_description,alcohol_consumption,smoking,height,weight,breathing_trouble,pain_level,pain_part,medical_concern,symptoms,temperature,medical_concern_start,priority
+1,34,Male,Yes,Teacher,Light,No,175,70,No,4,Head,Hypertension,Headache,37.5,2023-01-10,5
+2,45,Female,No,Unemployed,Moderate,Yes,160,80,Yes,7,Chest,Asthma,Cough,38,2023-02-15,8
+3,29,Other,Yes,Engineer,None,No,180,90,No,3,Back,Diabetes,Fatigue,36.8,2023-03-20,6
+4,52,Male,Yes,Accountant,Heavy,Yes,170,85,Yes,9,Abdomen,Heart Disease,Nausea,39.5,2023-04-05,9
+5,62,Female,Yes,Nurse,None,No,165,65,No,2,Knee,Arthritis,Joint Pain,36.5,2023-05-01,4
+6,40,Male,Yes,Driver,Moderate,Yes,178,76,Yes,5,Shoulder,High Cholesterol,Shortness of Breath,37.3,2023-06-10,7
+7,38,Female,Yes,Retail Manager,Light,No,158,68,No,6,Arm,Anxiety,Insomnia,37.1,2023-07-12,6
+8,25,Other,Yes,Software Developer,None,No,182,82,No,3,Leg,Depression,Mood Swings,36.9,2023-08-15,5
+9,55,Male,No,Retired,Heavy,Yes,165,90,Yes,8,Chest,COPD,Wheezing,38.2,2023-09-01,9
+10,41,Female,Yes,Marketing Specialist,Light,No,170,72,No,4,Head,Migraines,Dizziness,37,2023-10-10,6
+11,36,Female,Yes,Graphic Designer,Moderate,No,165,58,No,2,Foot,Hypertension,Fatigue,36.7,2023-01-15,4
+12,50,Male,Yes,Construction Worker,Heavy,Yes,180,90,Yes,8,Back,Chronic Pain,Muscle Aches,38.1,2023-02-10,8
+13,42,Female,No,Homemaker,None,No,160,75,No,5,Arm,Depression,Mood Swings,37.2,2023-03-05,6
+14,28,Other,Yes,IT Specialist,Light,No,175,70,No,3,Leg,Anxiety,Shortness of Breath,36.9,2023-04-25,5
+15,65,Male,No,Retired Teacher,Moderate,Yes,170,85,Yes,9,Chest,COPD,Cough,38,2023-05-30,9
+16,34,Female,Yes,Nurse,None,No,168,65,No,4,Head,Diabetes,Nausea,37.5,2023-06-15,5
+17,45,Male,Yes,Chef,Moderate,Yes,177,80,Yes,6,Abdomen,Heart Disease,Palpitations,38.3,2023-07-20,7
+18,39,Female,No,Unemployed,Heavy,Yes,160,72,No,3,Back,Arthritis,Joint Pain,36.6,2023-08-05,4
+19,54,Other,Yes,Social Worker,Light,No,169,74,No,7,Knee,High Cholesterol,Fatigue,37.4,2023-09-12,6
+20,26,Female,Yes,Marketing Analyst,None,No,160,60,No,2,Head,Migraines,Dizziness,36.8,2023-10-01,4
+21,33,Male,Yes,Data Scientist,Light,No,182,78,No,3,Chest,Allergies,Sneezing,37,2023-01-12,5
+22,48,Female,Yes,Office Manager,Moderate,Yes,170,65,Yes,8,Leg,Fibromyalgia,Muscle Pain,38.1,2023-02-20,8
+23,30,Other,No,Freelancer,None,No,175,70,No,4,Arm,PTSD,Nightmares,36.7,2023-03-15,5
+24,60,Male,Yes,Retired Engineer,Heavy,Yes,178,88,Yes,9,Chest,Heart Disease,Shortness of Breath,38.5,2023-04-12,9
+25,41,Female,Yes,Teacher,Light,No,165,65,No,5,Back,Hypertension,Fatigue,37.3,2023-05-07,6
+26,37,Male,Yes,Sales Representative,Moderate,No,180,82,No,6,Knee,Diabetes,Thirst,37.2,2023-06-30,7
+27,55,Female,No,Retired,None,No,160,70,Yes,7,Head,COPD,Cough,38,2023-07-15,8
+28,24,Other,Yes,Barista,None,No,168,60,No,2,Foot,Anxiety,Restlessness,36.9,2023-08-25,4
+29,49,Male,Yes,Warehouse Worker,Moderate,Yes,175,85,Yes,8,Abdomen,High Cholesterol,Palpitations,38.2,2023-09-03,8
+30,31,Female,Yes,Fitness Instructor,Light,No,170,65,No,3,Shoulder,Migraines,Dizziness,37.1,2023-10-20,5
+31,46,Female,Yes,Project Manager,Light,No,162,70,No,4,Back,Hypertension,Fatigue,37.5,2023-01-22,5
+32,29,Male,Yes,Software Engineer,None,No,175,80,No,3,Neck,Anxiety,Insomnia,36.9,2023-02-18,4
+33,53,Female,Yes,Marketing Director,Moderate,Yes,168,75,Yes,7,Chest,Asthma,Cough,38.1,2023-03-12,8
+34,25,Other,Yes,Sales Associate,None,No,160,60,No,2,Leg,Migraines,Dizziness,36.8,2023-04-28,4
+35,58,Male,No,Retired,Heavy,Yes,177,90,Yes,9,Abdomen,Heart Disease,Shortness of Breath,38.4,2023-05-19,9
+36,44,Female,Yes,Data Analyst,Light,No,165,68,No,5,Arm,Diabetes,Fatigue,37.2,2023-06-03,6
+37,41,Male,Yes,Financial Advisor,Moderate,Yes,180,78,Yes,6,Head,Chronic Pain,Muscle Aches,37.9,2023-07-08,7
+38,32,Female,No,Unemployed,None,No,170,64,No,3,Back,Anxiety,Restlessness,36.7,2023-08-10,5
+39,60,Other,Yes,Librarian,Moderate,Yes,165,72,Yes,8,Chest,COPD,Cough,38,2023-09-15,8
+40,21,Male,Yes,Waiter,Light,No,180,77,No,2,Knee,High Cholesterol,Fatigue,36.5,2023-10-02,4
+41,37,Female,Yes,Paralegal,None,No,163,65,No,3,Head,Hypertension,Headache,37.1,2023-01-05,5
+42,54,Male,Yes,Bus Driver,Heavy,Yes,170,85,Yes,9,Abdomen,Diabetes,Nausea,38.3,2023-02-11,9
+43,39,Female,No,Retired,Light,No,172,68,No,4,Shoulder,Chronic Pain,Muscle Aches,36.8,2023-03-22,6
+44,29,Other,Yes,Bartender,None,No,175,75,No,3,Leg,Depression,Mood Swings,37.2,2023-04-18,5
+45,50,Male,Yes,Electrician,Moderate,Yes,177,80,Yes,6,Back,Heart Disease,Shortness of Breath,38,2023-05-21,7
+46,64,Female,No,Retired,Heavy,Yes,165,70,Yes,8,Chest,COPD,Cough,38.2,2023-06-15,8
+47,34,Male,Yes,Personal Trainer,None,No,180,85,No,3,Arm,Anxiety,Fatigue,37.1,2023-07-10,5
+48,42,Female,Yes,Accountant,Light,Yes,160,60,No,5,Back,Hypertension,Fatigue,37.4,2023-08-30,6
+49,56,Other,Yes,Research Scientist,Moderate,No,175,78,Yes,7,Abdomen,Fibromyalgia,Joint Pain,38,2023-09-12,8
+50,27,Male,Yes,Delivery Driver,None,No,172,76,No,2,Knee,Migraines,Dizziness,36.9,2023-10-05,4
+51,38,Female,Yes,Operations Manager,Moderate,Yes,165,70,Yes,6,Chest,Hypertension,Shortness of Breath,38.1,2023-01-10,7
+52,30,Male,Yes,Graphic Designer,None,No,178,74,No,3,Neck,Anxiety,Fatigue,36.9,2023-02-25,5
+53,62,Female,No,Retired,Heavy,Yes,160,80,Yes,8,Back,COPD,Cough,38.2,2023-03-05,8
+54,22,Other,Yes,Sales Representative,Light,No,170,65,No,2,Leg,High Cholesterol,Fatigue,36.6,2023-04-10,4
+55,57,Male,Yes,Construction Manager,Moderate,Yes,182,90,Yes,7,Abdomen,Heart Disease,Palpitations,38.4,2023-05-20,8
+56,43,Female,Yes,Marketing Executive,None,No,165,68,No,4,Shoulder,Fibromyalgia,Joint Pain,37.3,2023-06-15,6
+57,35,Male,Yes,IT Consultant,Moderate,Yes,176,78,Yes,6,Chest,Diabetes,Nausea,37.8,2023-07-02,7
+58,40,Female,No,Unemployed,Heavy,Yes,160,75,Yes,9,Head,Chronic Pain,Muscle Aches,38.1,2023-08-01,9
+59,28,Other,Yes,Data Analyst,None,No,173,72,No,3,Arm,Anxiety,Restlessness,36.9,2023-09-10,5
+60,46,Male,Yes,Business Analyst,Moderate,Yes,179,82,Yes,7,Back,Hypertension,Fatigue,38.2,2023-10-15,7
+61,50,Female,Yes,Nurse,Light,No,162,65,No,4,Neck,COPD,Cough,37,2023-01-15,6
+62,55,Other,No,Retired,Heavy,Yes,170,85,Yes,8,Abdomen,Heart Disease,Shortness of Breath,38.3,2023-02-11,8
+63,31,Male,Yes,Graphic Designer,None,No,174,70,No,3,Leg,Anxiety,Insomnia,36.6,2023-03-25,5
+64,49,Female,Yes,Teacher,Moderate,Yes,165,70,Yes,6,Head,Diabetes,Fatigue,37.5,2023-04-05,6
+65,36,Other,Yes,Fitness Trainer,Light,No,180,80,No,4,Arm,Chronic Pain,Joint Pain,37.2,2023-05-25,5
+66,64,Male,No,Retired,Heavy,Yes,168,90,Yes,9,Chest,COPD,Cough,38.4,2023-06-30,9
+67,41,Female,Yes,Sales Executive,Moderate,No,170,65,No,5,Back,Hypertension,Fatigue,37.4,2023-07-22,6
+68,29,Other,Yes,Software Developer,None,No,175,78,No,2,Neck,Migraines,Dizziness,36.8,2023-08-10,4
+69,59,Male,Yes,Electrician,Heavy,Yes,177,85,Yes,8,Abdomen,High Cholesterol,Palpitations,38.2,2023-09-05,8
+70,32,Female,Yes,Marketing Specialist,Light,No,165,62,No,3,Shoulder,Anxiety,Fatigue,36.9,2023-10-10,5
+71,26,Female,Yes,Graphic Designer,None,No,164,58,No,2,Arm,Anxiety,Mild Headache,36.7,2023-01-15,3
+72,34,Male,Yes,Web Developer,Light,No,178,76,No,3,Neck,Hypertension,Fatigue,36.9,2023-02-20,4
+73,45,Female,No,Unemployed,Moderate,Yes,160,70,No,3,Back,Mild Arthritis,Occasional Pain,37.1,2023-03-15,4
+74,29,Other,Yes,Barista,None,No,170,65,No,2,Leg,Seasonal Allergies,Sneezing,36.8,2023-04-10,3
+75,52,Male,Yes,Office Clerk,Light,No,172,80,No,4,Knee,Mild Hypertension,Mild Fatigue,37,2023-05-20,5
+76,39,Female,Yes,Teacher,None,No,166,64,No,3,Head,Anxiety,Restlessness,36.9,2023-06-18,4
+77,24,Other,Yes,Customer Service Rep,Moderate,Yes,168,62,No,2,Shoulder,Mild Allergies,Sneezing,36.8,2023-07-12,3
+78,48,Male,Yes,Sales Associate,Light,No,175,77,No,4,Arm,Mild Depression,Low Energy,37.4,2023-08-22,5
+79,55,Female,No,Retired,None,No,160,70,No,2,Back,Seasonal Allergies,Occasional Sneezing,36.6,2023-09-10,3
+80,30,Male,Yes,Fitness Coach,Light,No,180,82,No,3,Knee,Mild Arthritis,Joint Stiffness,37,2023-10-15,4
+81,26,Female,Yes,Retail Manager,None,No,165,66,No,2,Neck,Anxiety,Mild Headache,36.7,2023-01-10,3
+82,42,Male,Yes,Marketing Associate,Light,Yes,177,80,No,3,Shoulder,Mild Hypertension,Occasional Fatigue,36.9,2023-02-05,4
+83,50,Other,Yes,Social Worker,None,No,165,75,No,2,Head,Mild Depression,Low Energy,37.1,2023-03-25,3
+84,33,Female,No,Unemployed,Moderate,No,170,68,No,3,Foot,Seasonal Allergies,Sneezing,36.8,2023-04-15,4
+85,37,Male,Yes,IT Technician,Light,Yes,180,75,No,4,Back,Anxiety,Mild Fatigue,37.3,2023-05-30,5
+86,46,Female,Yes,Chef,None,No,162,65,No,3,Leg,Mild Hypertension,Occasional Pain,37,2023-06-25,4
+87,27,Other,Yes,Delivery Driver,Light,No,175,70,No,2,Arm,Anxiety,Restlessness,36.9,2023-07-18,3
+88,41,Male,Yes,Customer Service,Moderate,Yes,169,78,No,3,Neck,Mild Arthritis,Occasional Stiffness,37.1,2023-08-10,4
+89,54,Female,No,Retired,Heavy,Yes,160,72,No,2,Back,Seasonal Allergies,Occasional Sneezing,36.7,2023-09-22,3
+90,39,Other,Yes,Marketing Manager,None,No,177,82,No,3,Shoulder,Mild Hypertension,Low Energy,37.4,2023-10-01,4
+91,23,Female,Yes,Intern,None,No,162,55,No,1,Shoulder,Mild Fatigue,Occasional Tiredness,36.5,2023-01-10,1
+92,37,Male,Yes,Administrative Assistant,Light,No,175,70,No,1,Neck,Stress,Mild Headache,36.8,2023-02-01,1
+93,29,Other,Yes,Research Assistant,None,No,168,65,No,1,Leg,Mild Allergies,Sneezing,36.7,2023-03-15,1
+94,46,Female,No,Retired,Moderate,No,160,60,No,1,Back,Occasional Cough,None,36.9,2023-04-12,1
+95,30,Male,Yes,Marketing Coordinator,Light,No,180,75,No,1,Arm,Minor Joint Pain,Occasional Stiffness,37,2023-05-25,1
+96,41,Female,Yes,Office Manager,None,No,165,68,No,1,Neck,Mild Fatigue,Low Energy,36.6,2023-06-10,1
+97,34,Other,Yes,Software Tester,None,No,172,74,No,1,Head,Seasonal Allergies,Sneezing,36.7,2023-07-15,1
+98,39,Male,Yes,HR Specialist,Light,No,178,80,No,1,Foot,Minor Allergies,Itchy Eyes,36.8,2023-08-01,1
+99,48,Female,No,Retired,None,No,160,65,No,1,Back,Occasional Cough,None,37,2023-09-22,1
+100,25,Other,Yes,Sales Executive,Light,No,170,72,No,1,Shoulder,Mild Anxiety,Occasional Tension,36.9,2023-10-05,1
+101,31,Male,Yes,Financial Analyst,None,No,176,77,No,1,Leg,Mild Fatigue,Occasional Tiredness,36.8,2023-01-20,1
+102,54,Female,Yes,Consultant,Light,No,165,70,No,1,Neck,Mild Hypertension,None,37.2,2023-02-18,1
+103,22,Other,Yes,Barista,None,No,160,60,No,1,Arm,Occasional Tension,Mild Headache,36.6,2023-03-05,1
+104,35,Male,Yes,Technical Writer,Light,No,173,72,No,1,Shoulder,Mild Stress,Occasional Fatigue,37.1,2023-04-25,1
+105,49,Female,Yes,Marketing Executive,None,No,164,68,No,1,Head,Minor Joint Pain,Occasional Stiffness,36.9,2023-05-30,1
+106,28,Other,Yes,Research Scientist,Moderate,No,170,75,No,1,Back,Mild Allergies,Sneezing,37,2023-06-20,1
+107,40,Male,Yes,IT Specialist,Light,No,178,82,No,1,Neck,Mild Fatigue,None,36.8,2023-07-12,1
+108,45,Female,No,Retired,None,No,165,70,No,1,Leg,Minor Cough,None,37.1,2023-08-15,1
+109,30,Other,Yes,Software Engineer,Moderate,No,175,78,No,1,Foot,Mild Anxiety,Occasional Tension,36.9,2023-09-10,1
+110,33,Male,Yes,Sales Associate,Light,No,170,73,No,1,Arm,Mild Stress,None,37,2023-10-02,1
+111,26,Female,Yes,Customer Support,None,No,160,55,No,1,Shoulder,Mild Fatigue,Occasional Tiredness,36.7,2023-01-15,1
+112,39,Male,Yes,Graphic Designer,Light,No,175,76,No,1,Neck,Mild Stress,Mild Headache,36.8,2023-02-12,1
+113,30,Other,Yes,Software Developer,None,No,170,72,No,1,Leg,Minor Allergies,Sneezing,36.9,2023-03-10,1
+114,45,Female,No,Retired,Moderate,No,162,62,No,1,Back,Occasional Cough,None,37,2023-04-20,1
+115,31,Male,Yes,Marketing Specialist,Light,No,178,80,No,1,Arm,Mild Fatigue,Occasional Tiredness,36.8,2023-05-28,1
+116,42,Female,Yes,HR Manager,None,No,165,70,No,1,Neck,Mild Hypertension,None,36.7,2023-06-18,1
+117,29,Other,Yes,Research Analyst,None,No,172,75,No,1,Head,Seasonal Allergies,Sneezing,36.9,2023-07-25,1
+118,50,Male,Yes,IT Consultant,Light,No,177,82,No,1,Foot,Minor Joint Pain,Occasional Stiffness,37.1,2023-08-05,1
+119,36,Female,No,Unemployed,None,No,160,65,No,1,Back,Occasional Cough,None,36.6,2023-09-10,1
+120,27,Other,Yes,Sales Associate,Moderate,No,168,66,No,1,Shoulder,Mild Anxiety,Occasional Tension,37,2023-10-12,1
+121,32,Male,Yes,Administrative Officer,None,No,175,70,No,1,Leg,Mild Fatigue,Occasional Tiredness,36.8,2023-01-05,1
+122,47,Female,Yes,Customer Service Rep,Light,No,164,69,No,1,Neck,Minor Allergies,None,36.9,2023-02-14,1
+123,22,Other,Yes,Barista,None,No,160,58,No,1,Arm,Mild Fatigue,Occasional Tiredness,36.7,2023-03-22,1
+124,34,Male,Yes,Research Scientist,Light,No,170,75,No,1,Shoulder,Mild Stress,Mild Headache,36.6,2023-04-30,1
+125,49,Female,No,Retired,None,No,161,66,No,1,Back,Occasional Cough,None,37.1,2023-05-15,1
+126,28,Other,Yes,Software Engineer,Moderate,No,175,77,No,1,Foot,Mild Anxiety,Occasional Tension,36.9,2023-06-10,1
+127,39,Male,Yes,Marketing Executive,None,No,177,81,No,1,Neck,Mild Fatigue,Low Energy,37,2023-07-05,1
+128,53,Female,No,Unemployed,Light,No,165,72,No,1,Leg,Minor Joint Pain,Occasional Stiffness,36.8,2023-08-20,1
+129,31,Other,Yes,HR Consultant,None,No,170,74,No,1,Back,Seasonal Allergies,Sneezing,36.7,2023-09-15,1
+130,44,Male,Yes,IT Support,Light,No,178,79,No,1,Arm,Mild Hypertension,None,37.2,2023-10-01,1
+131,58,Female,No,Retired,Heavy,Yes,162,80,Yes,8,Chest,Heart Disease,Shortness of Breath,38.5,2023-01-20,5
+132,65,Male,No,Retired,None,Yes,170,90,Yes,9,Back,Chronic Pain,Severe Fatigue,38.3,2023-02-15,5
+133,52,Female,Yes,Nurse,Moderate,No,165,75,Yes,7,Abdomen,Diabetes,Frequent Thirst,38.2,2023-03-10,5
+134,70,Male,No,Unemployed,Light,No,168,85,Yes,8,Head,Stroke,Dizziness,38.4,2023-04-12,5
+135,45,Female,Yes,Teacher,Heavy,Yes,160,68,Yes,6,Chest,Severe Asthma,Persistent Cough,38.1,2023-05-15,5
+136,62,Other,No,Retired,None,No,170,78,Yes,9,Leg,Severe Osteoporosis,Limited Mobility,38,2023-06-20,5
+137,50,Male,Yes,Construction Worker,Moderate,Yes,180,95,Yes,7,Back,Chronic Back Pain,Numbness,38.3,2023-07-15,5
+138,73,Female,No,Retired,None,No,160,70,Yes,8,Abdomen,Advanced Diabetes,Weight Loss,38.6,2023-08-10,5
+139,67,Male,Yes,Mechanic,Heavy,Yes,175,88,Yes,8,Chest,Heart Failure,Shortness of Breath,38.2,2023-09-05,5
+140,55,Female,Yes,Office Administrator,None,No,165,70,Yes,9,Leg,Peripheral Artery Disease,Cold Extremities,38.4,2023-10-02,5
+141,60,Male,No,Unemployed,Heavy,Yes,172,90,Yes,8,Head,Severe Migraines,Nausea,38.5,2023-01-30,5
+142,64,Female,Yes,Caregiver,Light,No,168,72,Yes,6,Back,Severe Hypertension,Frequent Headaches,38,2023-02-25,5
+143,71,Other,No,Retired,None,No,161,75,Yes,9,Abdomen,Advanced Heart Disease,Severe Fatigue,38.7,2023-03-12,5
+144,48,Male,Yes,Sales Manager,Moderate,Yes,178,85,Yes,8,Chest,Chronic Respiratory Issue,Shortness of Breath,38.3,2023-04-18,5
+145,66,Female,No,Unemployed,Light,No,165,68,Yes,7,Neck,Severe Osteoarthritis,Pain in Movement,38.1,2023-05-10,5
+146,72,Male,Yes,Retired,Heavy,Yes,170,92,Yes,9,Back,Severe Depression,Loss of Interest,38.5,2023-06-15,5
+147,57,Female,Yes,IT Consultant,None,No,162,70,Yes,8,Chest,Severe Asthma,Persistent Cough,38.2,2023-07-30,5
+148,68,Other,No,Retired,Moderate,No,176,85,Yes,8,Abdomen,Advanced Heart Failure,Severe Fatigue,38.6,2023-08-25,5
+149,63,Male,Yes,Factory Worker,Heavy,Yes,175,90,Yes,7,Leg,Severe Varicose Veins,Painful Swelling,38.3,2023-09-20,5
+150,55,Female,Yes,Social Worker,None,No,160,65,Yes,9,Back,Chronic Kidney Disease,Swelling in Feet,38.4,2023-10-05,5
+151,62,Female,No,Retired,Heavy,Yes,160,90,Yes,10,Chest,Myocardial Infarction,Severe Chest Pain,39,2023-01-25,10
+152,74,Male,No,Unemployed,None,No,165,95,Yes,10,Head,Stroke,Loss of Consciousness,39.2,2023-02-10,10
+153,58,Female,Yes,Nurse,Heavy,Yes,170,85,Yes,10,Abdomen,Severe Pancreatitis,Nausea and Vomiting,39.1,2023-03-05,10
+154,68,Male,Yes,Construction Worker,Heavy,Yes,180,100,Yes,10,Chest,Congestive Heart Failure,Shortness of Breath,39.3,2023-04-01,10
+155,72,Female,No,Retired,None,No,163,80,Yes,10,Leg,Pulmonary Embolism,Sudden Leg Swelling,39,2023-05-20,10
+156,76,Male,No,Unemployed,Moderate,No,175,95,Yes,10,Back,Severe Sepsis,High Fever,39.4,2023-06-18,10
+157,64,Female,Yes,IT Consultant,None,No,167,75,Yes,10,Chest,Advanced COPD,Extreme Fatigue,39.2,2023-07-10,10
+158,70,Male,Yes,Factory Supervisor,Heavy,Yes,178,98,Yes,10,Abdomen,Critical Liver Disease,Jaundice,39.1,2023-08-15,10
+159,60,Female,No,Retired,Moderate,No,162,70,Yes,10,Head,Brain Tumor,Severe Headaches,39.3,2023-09-12,10
+160,66,Male,No,Retired,Heavy,Yes,170,88,Yes,10,Chest,Cardiac Arrest,Loss of Consciousness,39.5,2023-10-05,10
+161,55,Female,Yes,Social Worker,None,No,160,68,Yes,10,Back,Severe Ulcerative Colitis,Blood in Stool,39.2,2023-01-18,10
+162,69,Male,Yes,IT Specialist,Heavy,Yes,175,90,Yes,10,Chest,Aortic Dissection,Severe Chest Pain,39.4,2023-02-05,10
+163,74,Female,No,Unemployed,None,No,168,75,Yes,10,Abdomen,Ruptured Aneurysm,Severe Abdominal Pain,39.6,2023-03-15,10
+164,71,Male,Yes,Construction Manager,Moderate,Yes,180,100,Yes,10,Leg,Critical Heart Attack,Severe Chest Pain,39.3,2023-04-10,10
+165,63,Female,No,Retired,Heavy,Yes,165,82,Yes,10,Head,Severe Meningitis,Confusion,39.1,2023-05-25,10
+166,67,Male,Yes,Emergency Services,None,No,177,87,Yes,10,Chest,Severe Arrhythmia,Fainting,39,2023-06-30,10
+167,59,Female,No,Unemployed,Light,No,164,70,Yes,10,Back,Severe Sickle Cell Crisis,Extreme Pain,39.4,2023-07-22,10
+168,75,Male,Yes,Consultant,Moderate,Yes,179,94,Yes,10,Chest,End-Stage Renal Disease,Severe Edema,39.5,2023-08-28,10
+169,62,Female,No,Retired,Heavy,Yes,170,80,Yes,10,Abdomen,Severe Hemorrhage,Rapid Heart Rate,39.6,2023-09-15,10
+170,69,Male,Yes,Emergency Physician,None,No,178,85,Yes,10,Chest,Critical Heart Failure,Severe Fatigue,39.5,2023-10-03,10
+171,74,Female,No,Retired,None,No,164,82,Yes,10,Chest,Myocardial Infarction,Severe Chest Pain,39,2023-01-22,10
+172,61,Male,Yes,Business Executive,Heavy,Yes,175,88,Yes,10,Abdomen,Acute Pancreatitis,Severe Nausea,39.3,2023-02-14,10
+173,66,Female,No,Retired,None,No,160,70,Yes,10,Head,Severe Stroke,Weakness on One Side,39.5,2023-03-03,10
+174,70,Male,Yes,Construction Worker,Moderate,Yes,178,95,Yes,10,Back,Critical Heart Failure,Extreme Shortness of Breath,39.4,2023-04-20,10
+175,75,Female,No,Unemployed,None,No,165,75,Yes,10,Chest,Aortic Dissection,Severe Chest Pain,39.2,2023-05-10,10
+176,67,Male,Yes,IT Consultant,Heavy,Yes,172,90,Yes,10,Abdomen,Severe Liver Failure,Jaundice,39.1,2023-06-01,10
+177,63,Female,Yes,Nurse,Light,No,169,68,Yes,10,Chest,Severe Asthma Attack,Difficulty Breathing,39.3,2023-06-25,10
+178,71,Male,Yes,Factory Worker,Moderate,Yes,180,100,Yes,10,Chest,Critical COPD,Severe Fatigue,39.4,2023-07-15,10
+179,59,Female,No,Retired,Heavy,Yes,164,73,Yes,10,Back,Severe Varicose Veins,Pain and Swelling,39,2023-08-10,10
+180,64,Male,Yes,Emergency Services,None,No,175,85,Yes,10,Head,Severe Meningitis,Confusion,39.6,2023-09-05,10
+181,72,Female,No,Unemployed,Light,No,162,70,Yes,10,Abdomen,Acute Appendicitis,Severe Abdominal Pain,39.1,2023-10-01,10
+182,58,Male,Yes,Business Analyst,Moderate,Yes,170,80,Yes,10,Chest,Severe Heart Attack,Cold Sweats,39.5,2023-01-28,10
+183,76,Female,No,Retired,None,No,167,75,Yes,10,Leg,Severe Osteoporosis,Fracture,39.4,2023-02-22,10
+184,69,Male,Yes,Construction Manager,Heavy,Yes,179,95,Yes,10,Back,Severe Back Injury,Numbness,39.2,2023-03-17,10
+185,61,Female,Yes,Pharmacist,Light,No,165,72,Yes,10,Chest,Advanced Heart Disease,Severe Shortness of Breath,39.5,2023-04-30,10
+186,74,Male,No,Retired,None,No,170,88,Yes,10,Abdomen,Severe Colorectal Cancer,Weight Loss,39.6,2023-05-25,10
+187,73,Female,No,Unemployed,Heavy,Yes,164,74,Yes,10,Chest,Critical Heart Failure,Severe Edema,39.1,2023-06-15,10
+188,68,Male,Yes,Factory Supervisor,Moderate,Yes,176,90,Yes,10,Leg,Severe Thrombosis,Swelling and Pain,39.3,2023-07-30,10
+189,70,Female,Yes,Caregiver,None,No,161,68,Yes,10,Abdomen,Severe Diverticulitis,Severe Abdominal Pain,39.2,2023-08-20,10
+190,75,Male,No,Retired,Heavy,Yes,173,95,Yes,10,Chest,Critical Aortic Stenosis,Severe Chest Pain,39.5,2023-09-10,10
+191,64,Female,Yes,Office Administrator,Light,No,168,75,Yes,8,Chest,Hypertension,Headaches,38.9,2023-01-15,9
+192,56,Male,Yes,Software Engineer,None,Yes,175,85,Yes,7,Back,Chronic Back Pain,Limited Mobility,38.7,2023-02-12,9
+193,62,Female,No,Retired,Heavy,Yes,170,80,Yes,8,Abdomen,Gallbladder Disease,Nausea and Vomiting,38.8,2023-03-05,9
+194,59,Male,Yes,Construction Worker,Light,No,180,90,Yes,7,Chest,Chronic Respiratory Disease,Shortness of Breath,38.6,2023-04-10,9
+195,65,Female,No,Unemployed,None,No,160,70,Yes,8,Head,Severe Anemia,Dizziness,38.7,2023-05-22,9
+196,72,Male,Yes,Factory Worker,Heavy,Yes,178,95,Yes,9,Leg,Chronic Kidney Disease,Swelling in Feet,38.9,2023-06-17,9
+197,57,Female,Yes,Nurse,None,No,165,68,Yes,8,Chest,Severe Allergies,Rash and Itching,38.8,2023-07-12,9
+198,63,Male,Yes,Business Consultant,Moderate,Yes,173,88,Yes,9,Abdomen,Diabetes Complications,Frequent Urination,38.6,2023-08-05,9
+199,69,Female,No,Retired,Heavy,Yes,160,78,Yes,8,Back,Osteoarthritis,Stiffness,38.4,2023-09-15,9
+200,66,Male,Yes,Sales Representative,None,No,180,85,Yes,9,Chest,Severe Sleep Apnea,Extreme Fatigue,38.8,2023-10-02,9
+201,64,Female,No,Unemployed,Moderate,No,167,74,Yes,8,Leg,Severe Varicose Veins,Painful Swelling,38.5,2023-01-30,9
+202,70,Male,Yes,Emergency Services,Heavy,Yes,175,90,Yes,9,Abdomen,Chronic Gastritis,Nausea,38.6,2023-02-20,9
+203,68,Female,Yes,Teacher,Light,No,164,70,Yes,8,Head,Severe Migraines,Visual Disturbances,38.9,2023-03-12,9
+204,61,Male,No,Retired,None,No,176,88,Yes,7,Back,Chronic Fatigue Syndrome,Unrefreshing Sleep,38.5,2023-04-15,9
+205,65,Female,Yes,IT Specialist,Heavy,Yes,162,66,Yes,9,Chest,Severe Pulmonary Disease,Persistent Cough,38.7,2023-05-20,9
+206,60,Male,Yes,Financial Analyst,Light,No,171,79,Yes,8,Abdomen,Severe Inflammatory Bowel Disease,Diarrhea,38.8,2023-06-30,9
+207,67,Female,No,Unemployed,None,No,159,72,Yes,9,Leg,Peripheral Artery Disease,Cold Feet,38.4,2023-07-28,9
+208,73,Male,Yes,Sales Manager,Heavy,Yes,180,95,Yes,9,Chest,Severe Cardiac Issues,Heart Palpitations,38.9,2023-08-15,9
+209,65,Female,Yes,Caregiver,Moderate,No,164,70,Yes,8,Back,Advanced Osteoporosis,Pain in Movement,38.6,2023-09-05,9
+210,62,Male,No,Retired,None,No,171,84,Yes,9,Head,Severe Hypertension,Severe Headaches,38.5,2023-10-01,9
+211,66,Female,Yes,Healthcare Worker,Light,No,165,72,Yes,8,Chest,Uncontrolled Hypertension,"Severe Headaches, Fatigue",38.7,2023-01-10,9
+212,54,Male,Yes,Mechanical Engineer,Heavy,Yes,178,89,Yes,9,Back,Chronic Sciatica,"Radiating Pain, Numbness",38.6,2023-02-05,9
+213,63,Female,No,Unemployed,None,No,160,70,Yes,7,Abdomen,Acute Cholecystitis,"Severe Nausea, Vomiting",38.8,2023-03-15,9
+214,71,Male,Yes,Construction Worker,Moderate,Yes,182,95,Yes,9,Chest,Congestive Heart Failure,"Shortness of Breath, Swelling",39,2023-04-10,9
+215,58,Female,Yes,IT Project Manager,Heavy,No,167,75,Yes,8,Head,Severe Anxiety Disorder,"Palpitations, Dizziness",38.5,2023-05-05,9
+216,67,Male,No,Retired,None,No,174,88,Yes,8,Leg,Peripheral Neuropathy,"Tingling Sensation, Weakness",39.1,2023-06-20,9
+217,62,Female,Yes,Nurse,Light,Yes,163,68,Yes,9,Abdomen,Severe Diverticulitis,"Abdominal Cramping, Fever",38.9,2023-07-18,9
+218,69,Male,Yes,Marketing Executive,Moderate,Yes,176,92,Yes,9,Chest,Advanced COPD,"Persistent Cough, Fatigue",39,2023-08-10,9
+219,64,Female,No,Unemployed,None,No,165,73,Yes,8,Back,Severe Osteoarthritis,"Joint Stiffness, Swelling",38.8,2023-09-01,9
+220,70,Male,Yes,Sales Manager,Heavy,Yes,179,91,Yes,9,Abdomen,Chronic Kidney Disease,"Swelling, Fatigue",39.2,2023-09-25,9
+221,55,Female,Yes,Social Worker,Moderate,No,161,65,Yes,8,Chest,Severe Asthma,"Wheezing, Chest Tightness",38.6,2023-10-02,9
+222,68,Male,Yes,Firefighter,Light,Yes,182,99,Yes,9,Head,Acute Stroke,"Confusion, Weakness",39.1,2023-01-18,9
+223,72,Female,No,Unemployed,None,No,164,78,Yes,9,Back,Severe Fibromyalgia,"Widespread Pain, Fatigue",38.7,2023-02-20,9
+224,66,Male,Yes,IT Consultant,Heavy,Yes,177,84,Yes,8,Abdomen,Severe Gastric Ulcers,"Heartburn, Nausea",39,2023-03-30,9
+225,65,Female,No,Retired,None,No,169,76,Yes,8,Chest,Severe Anemia,"Dizziness, Weakness",38.6,2023-04-28,9
+226,60,Male,Yes,Business Analyst,Light,No,170,80,Yes,9,Leg,Advanced Peripheral Vascular Disease,"Leg Pain, Cold Sensation",39.2,2023-05-22,9
+227,74,Female,Yes,Teacher,Heavy,Yes,162,70,Yes,9,Chest,Severe Congestive Heart Failure,"Extreme Fatigue, Coughing",39.1,2023-06-15,9
+228,62,Male,No,Retired,Moderate,Yes,176,90,Yes,9,Abdomen,Chronic Liver Disease,Abdominal Discomfort,38.5,2023-07-12,9
+229,61,Female,Yes,Marketing Specialist,None,No,165,68,Yes,8,Head,Severe Depression,"Loss of Interest, Fatigue",38.8,2023-08-20,9
+230,67,Male,Yes,Electrical Engineer,Heavy,Yes,180,92,Yes,9,Back,Severe Spinal Stenosis,"Leg Weakness, Numbness",39,2023-09-10,9
+231,50,Female,Yes,Marketing Director,None,No,165,70,No,3,Head,Seasonal Allergies,"Sneezing, Itchy Eyes",37.8,2023-10-05,4
+232,75,Male,No,Retired,Light,Yes,172,90,Yes,7,Chest,Chronic Heart Disease,"Fatigue, Shortness of Breath",38.2,2023-09-22,9
+233,28,Female,Yes,Graphic Designer,Heavy,Yes,160,60,No,2,None,Mild Anxiety,Slight Nervousness,37.5,2023-10-15,2
+234,45,Male,Yes,Software Developer,None,No,178,80,No,1,Back,Mild Muscle Strain,Stiffness,36.9,2023-10-08,1
+235,68,Female,Yes,Teacher,Light,No,164,75,Yes,8,Abdomen,Peptic Ulcer,"Abdominal Pain, Nausea",38.6,2023-09-18,8
+236,52,Male,No,Unemployed,Heavy,Yes,180,95,Yes,5,Chest,Hyperlipidemia,Chest Discomfort,37.9,2023-10-03,5
+237,39,Female,Yes,Nurse,None,No,170,65,No,4,Head,Migraines,Pulsating Pain,37.8,2023-09-25,4
+238,81,Male,No,Retired,Light,No,165,70,Yes,9,Leg,Severe Osteoporosis,"Fracture, Pain",38.1,2023-10-12,10
+239,56,Female,Yes,Project Manager,Moderate,Yes,168,76,No,6,None,Chronic Fatigue,Low Energy,37.7,2023-09-10,6
+240,27,Male,Yes,Chef,Heavy,Yes,175,85,No,3,None,Mild Dehydration,Thirst,37.6,2023-10-01,3
+241,62,Female,Yes,Retail Manager,None,No,160,65,Yes,7,Chest,Hypertension,"Headaches, Dizziness",38.2,2023-10-04,7
+242,30,Male,Yes,Web Developer,Light,No,182,78,No,2,None,Mild Allergies,Occasional Sneezing,37.4,2023-10-09,2
+243,71,Female,No,Unemployed,Heavy,Yes,159,72,Yes,9,Abdomen,Severe Gastritis,"Nausea, Burning Sensation",38.5,2023-09-16,9
+244,49,Male,Yes,Business Analyst,Moderate,Yes,177,82,No,5,None,Mild Back Pain,Occasional Discomfort,37.9,2023-10-11,5
+245,34,Female,Yes,Marketing Coordinator,Light,No,165,58,No,2,None,Mild Anxiety,Occasional Nervousness,37.8,2023-09-21,2
+246,59,Male,Yes,Construction Supervisor,None,No,180,88,Yes,6,Chest,COPD,Chronic Cough,38,2023-10-06,6
+247,40,Female,Yes,Sales Executive,Light,No,170,65,No,3,None,Mild Allergies,Sneezing,37.5,2023-10-14,3
+248,73,Male,Yes,Retired,Heavy,Yes,175,95,Yes,9,Back,Advanced Osteoarthritis,"Joint Pain, Stiffness",39.2,2023-10-02,9
+249,66,Female,No,Unemployed,None,No,162,70,Yes,8,Chest,Severe Heart Failure,"Severe Fatigue, Cough",38.6,2023-09-30,8
+250,55,Male,Yes,Chef,Moderate,Yes,175,80,Yes,4,Abdomen,Mild Gastritis,Occasional Nausea,37.8,2023-10-13,4
+251,48,Male,Yes,Financial Analyst,None,No,177,82,No,3,None,Mild Fatigue,Occasional Tiredness,37.5,2023-10-05,3
+252,80,Female,No,Retired,Light,Yes,158,65,Yes,8,Chest,Severe COPD,Persistent Cough,38.4,2023-09-28,8
+253,33,Male,Yes,IT Technician,Moderate,No,180,75,No,4,None,Mild Anxiety,Occasional Nervousness,37.7,2023-10-01,4
+254,57,Female,Yes,Research Scientist,Heavy,Yes,165,70,Yes,9,Abdomen,Chronic Gallbladder Issues,"Severe Pain, Nausea",38.2,2023-09-20,9
+255,61,Male,Yes,Electrician,None,No,173,88,Yes,7,Back,Severe Lower Back Pain,Limited Mobility,38.1,2023-10-10,7
+256,29,Female,Yes,Graphic Designer,Light,No,168,60,No,2,None,Mild Allergies,"Sneezing, Itchy Eyes",37.6,2023-10-15,2
+257,74,Male,No,Retired,Moderate,Yes,170,85,Yes,8,Leg,Severe Varicose Veins,"Swelling, Pain",39,2023-09-15,8
+258,45,Female,Yes,Human Resources Manager,None,No,162,68,No,5,None,Mild Hypertension,Occasional Headaches,37.8,2023-09-25,5
+259,39,Male,Yes,Marketing Executive,Heavy,Yes,178,90,Yes,9,Chest,Severe Anxiety,"Palpitations, Dizziness",38.5,2023-10-07,9
+260,66,Female,Yes,Social Worker,Light,No,164,74,Yes,7,Head,Chronic Migraines,Severe Head Pain,38.3,2023-09-22,7
+261,51,Male,No,Unemployed,None,No,176,83,No,4,None,Mild Depression,Low Energy,37.9,2023-10-02,4
+262,75,Female,Yes,Nurse,Moderate,Yes,160,70,Yes,8,Abdomen,Chronic Kidney Disease,"Swelling, Fatigue",38.1,2023-10-06,8
+263,28,Male,Yes,Software Developer,Light,No,175,76,No,2,None,Mild Anxiety,Occasional Stress,37.5,2023-10-12,2
+264,67,Female,No,Retired,None,No,162,68,Yes,9,Chest,Severe Sleep Apnea,Extreme Fatigue,39,2023-09-30,9
+265,64,Male,Yes,IT Consultant,Heavy,Yes,180,90,Yes,6,Back,Chronic Back Pain,Limited Movement,38.6,2023-10-04,6
+266,53,Female,Yes,Sales Representative,Light,No,169,70,No,3,None,Mild Fatigue,Occasional Tiredness,37.7,2023-10-08,3
+267,70,Male,No,Unemployed,Moderate,Yes,175,88,Yes,9,Abdomen,Severe Diverticulitis,Severe Abdominal Pain,39.2,2023-09-25,9
+268,44,Female,Yes,Marketing Analyst,Heavy,Yes,163,67,No,5,None,Mild Hypertension,Occasional Dizziness,37.8,2023-10-10,5
+269,30,Male,Yes,Bartender,Light,No,182,80,No,2,None,Mild Allergies,Occasional Sneezing,37.6,2023-10-14,2
+270,79,Female,No,Retired,None,No,160,72,Yes,8,Back,Severe Osteoporosis,"Severe Pain, Stiffness",38.1,2023-09-12,8
