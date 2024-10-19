@@ -1,25 +1,31 @@
 ## Project Structure
 
-- src
--  config
--    db.config.js  - Database configuration
--  controllers
--    *.js          - Handles task-specific-related AI operatinos
--  models
--    *_model       - Folder for task-specific model and logic
--        train.js       - Training logic for task specific model
--        model.json     - Saved model architecture
--        weights.bin    - Trained model weights
--  routes
--     *.js         - API routes for Task Specific
+```plaintext
+/src
+│
+├── config
+│   └── db.config.js        # Database configuration
+│
+├── controllers
+│   └── *.js                # Handles task-specific AI operations
+│
+├── models
+│   └── *_model             # Folder for task-specific models and logic
+│       ├── train.js        # Training logic for task-specific model
+│       ├── model.json      # Saved model architecture
+│       └── weights.bin     # Trained model weights
+│
+├── routes
+│   └── *.js                # API routes for task-specific operations
+│
+├── utils
+│   └── *.js                # Functions for common tasks (e.g., formatting dates, parsing input data, validating user input)
+│
+├── data
+│   └── *.csv               # Dataset for training models
+│
+└── server.js               # Main server file
 
--  utils
--     *.js         - For Functions that perform common tasks, such as formatting dates, parsing input data, or validating user input.
-
--  data
--     *.csv        - Dataset for training models
-
--  server.js       - Main server file
 
 ## Requirements
 
