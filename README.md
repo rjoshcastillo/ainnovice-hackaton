@@ -1,9 +1,29 @@
 ## Project Structure
-- src/data - Our database
-- src/training - This where we train our model
-- model - Trained model will be saved here
-- src/index.js - Api services
-- src/loadModel.js - We will load trained model here.
+│
+├── /src
+|   |
+|   |── /config
+|   |   |── /db.config.js # Database configuration
+|   |
+│   ├── /controllers
+│   │   ├── *.js # Handles task-specific-related AI operatinos
+│   │
+│   ├── /models
+│   │   ├── /*_model      # Folder for task-specific model and logic
+│   │   │   ├── train.js       # Training logic for task specific model
+│   │   │   ├── model.json     # Saved model architecture
+│   │   │   ├── weights.bin    # Trained model weights
+│   │
+│   ├── /routes
+│   │   ├── *.js     # API routes for Task Specific
+│   │
+│   ├── /utils
+│   │   ├── *.js     # For Functions that perform common tasks, such as formatting dates, parsing input data, or validating user input.
+│   │
+├── /data
+│   ├── *.csv       # Dataset for training models
+│
+└── server.js                   # Main server file
 
 ## Requirements
 
@@ -18,7 +38,3 @@
     install visual studio installer
        - install Desktop Development C++
     install python v3.13
-
-
-## HOW TO TRAIN MODEL
-   
