@@ -26,7 +26,7 @@
 │
 └── server.js               # Main server file
 
-
+```
 ## Requirements
 
 - Node.js v18.20.4
