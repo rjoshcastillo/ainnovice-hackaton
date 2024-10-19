@@ -19,6 +19,13 @@ async function preprocessInput(input) {
   const alcohol_consumption_categories = await category("alcohol_consumption");
   const symptoms_categories = await category("symptoms");
 
+  /* Split each string and flatten the array */
+  const split_symptoms = symptoms_categories.flatMap((symptom) =>
+    symptom.split(",").map((s) => s.trim())
+  );
+  /* Get unique symptoms */
+  const unique_symptoms = [...new Set(split_symptoms)];
+
   const numericFeatures = [
     Number(input.age),
     input.gender === "M" ? 1 : 0,
@@ -43,7 +50,7 @@ async function preprocessInput(input) {
     input.pain_level,
     pain_level_categories
   );
-  const symptoms_encoded = oneHotEncode(input.symptoms, symptoms_categories);
+  const symptoms_encoded = oneHotEncode(input.symptoms, unique_symptoms);
 
   return [
     ...numericFeatures,
@@ -84,9 +91,11 @@ const patientInput = {
   symptoms: "Headache",
   temperature: 36.5,
 };
+
 /* Test Prediction */
 /* uncomment and do */
 /* npm run triage-predict */
+
 /* predictUrgency(patientInput).then((urgency) => {
     if (urgency !== null) {
         console.log(`Predicted urgency: ${urgency}`);

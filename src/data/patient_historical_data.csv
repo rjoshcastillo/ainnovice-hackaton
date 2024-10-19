@@ -1,5 +1,5 @@
 patient_id,age,gender,employed,job_description,alcohol_consumption,smoking,height,weight,breathing_trouble,pain_level,pain_part,medical_concern,symptoms,temperature,medical_concern_start,priority
-1,34,Male,Yes,Teacher,Light,No,175,70,No,4,Head,Hypertension,Headache,37.5,2023-01-10,5
+1,34,Male,Yes,Teacher,Light,No,175,70,No,4,Head,Hypertension,"Headache,Cough",37.5,2023-01-10,5
 2,45,Female,No,Unemployed,Moderate,Yes,160,80,Yes,7,Chest,Asthma,Cough,38,2023-02-15,8
 3,29,Other,Yes,Engineer,None,No,180,90,No,3,Back,Diabetes,Fatigue,36.8,2023-03-20,6
 4,52,Male,Yes,Accountant,Heavy,Yes,170,85,Yes,9,Abdomen,Heart Disease,Nausea,39.5,2023-04-05,9

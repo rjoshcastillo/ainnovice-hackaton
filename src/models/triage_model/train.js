@@ -31,6 +31,11 @@ async function prepareInputs(dataset) {
   const alcohol_consumption_categories = await category("alcohol_consumption");
   const symptoms_categories = await category("symptoms");
 
+  /* Split each string and flatten the array */
+  const split_symptoms = symptoms_categories.flatMap(symptom => symptom.split(',').map(s => s.trim()));
+  /* Get unique symptoms */
+  const unique_symptoms = [...new Set(split_symptoms)];
+  
   return dataset.map((item) => {
     const numericFeatures = [
       Number(item.age),
@@ -59,7 +64,7 @@ async function prepareInputs(dataset) {
       item.pain_level,
       pain_level_categories
     );
-    const symptoms_encoded = oneHotEncode(item.symptoms, symptoms_categories);
+    const symptoms_encoded = oneHotEncode(item.symptoms, unique_symptoms);
 
     return {
       input: [
