@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "triage-train": "node src/models/triage_model/train.js",
     "triage-predict": "node src/controllers/triage.controller.js"
   },
@@ -14,8 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "@tensorflow/tfjs-node": "^4.21.0",
+    "ainnovice-server": "file:",
     "csv-parser": "^3.0.0",
     "express": "^4.21.1",
-    "mysql2": "^3.11.3"
+    "mysql2": "^3.11.3",
+    "nodemon": "^3.1.7",
+    "openai": "^4.68.1"
   }
 }

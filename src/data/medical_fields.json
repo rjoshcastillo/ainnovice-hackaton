@@ -1,0 +1,163 @@
+ {
+  "fields": [
+    {
+      "name": "Internal Medicine",
+      "subfields": [
+        "Cardiology",
+        "Endocrinology",
+        "Gastroenterology",
+        "Hematology",
+        "Infectious Disease",
+        "Nephrology",
+        "Oncology",
+        "Pulmonology",
+        "Rheumatology"
+      ]
+    },
+    {
+      "name": "Surgery",
+      "subfields": [
+        "Cardiothoracic Surgery",
+        "Neurosurgery",
+        "Orthopedic Surgery",
+        "Plastic Surgery",
+        "General Surgery",
+        "Vascular Surgery",
+        "Urology",
+        "Otolaryngology"
+      ]
+    },
+    {
+      "name": "Pediatrics",
+      "subfields": [
+        "Pediatric Cardiology",
+        "Pediatric Neurology",
+        "Pediatric Endocrinology",
+        "Pediatric Pulmonology",
+        "Pediatric Hematology-Oncology",
+        "Neonatology",
+        "Pediatric Nephrology"
+      ]
+    },
+    {
+      "name": "Obstetrics and Gynecology",
+      "subfields": [
+        "Maternal-Fetal Medicine",
+        "Gynecologic Oncology",
+        "Reproductive Endocrinology",
+        "Urogynecology"
+      ]
+    },
+    {
+      "name": "Radiology",
+      "subfields": [
+        "Diagnostic Radiology",
+        "Interventional Radiology",
+        "Nuclear Medicine",
+        "Pediatric Radiology",
+        "Neuroradiology"
+      ]
+    },
+    {
+      "name": "Anesthesiology",
+      "subfields": [
+        "Pain Medicine",
+        "Critical Care Anesthesiology",
+        "Pediatric Anesthesiology",
+        "Cardiothoracic Anesthesiology"
+      ]
+    },
+    {
+      "name": "Psychiatry",
+      "subfields": [
+        "Child and Adolescent Psychiatry",
+        "Forensic Psychiatry",
+        "Geriatric Psychiatry",
+        "Addiction Psychiatry",
+        "Psychosomatic Medicine"
+      ]
+    },
+    {
+      "name": "Dermatology",
+      "subfields": [
+        "Pediatric Dermatology",
+        "Dermatopathology",
+        "Cosmetic Dermatology",
+        "Mohs Surgery"
+      ]
+    },
+    {
+      "name": "Emergency Medicine",
+      "subfields": [
+        "Pediatric Emergency Medicine",
+        "Medical Toxicology",
+        "Sports Medicine",
+        "Emergency Medical Services"
+      ]
+    },
+    {
+      "name": "Pathology",
+      "subfields": [
+        "Anatomic Pathology",
+        "Clinical Pathology",
+        "Forensic Pathology",
+        "Hematopathology",
+        "Cytopathology",
+        "Molecular Genetic Pathology"
+      ]
+    },
+    {
+      "name": "Ophthalmology",
+      "subfields": [
+        "Pediatric Ophthalmology",
+        "Retina and Vitreous Surgery",
+        "Glaucoma",
+        "Cornea and External Disease",
+        "Oculoplastic Surgery"
+      ]
+    },
+    {
+      "name": "Neurology",
+      "subfields": [
+        "Vascular Neurology",
+        "Neurocritical Care",
+        "Clinical Neurophysiology",
+        "Epilepsy",
+        "Neuromuscular Medicine",
+        "Movement Disorders"
+      ]
+    },
+    {
+      "name": "Orthopedics",
+      "subfields": [
+        "Hand Surgery",
+        "Joint Reconstruction",
+        "Pediatric Orthopedics",
+        "Sports Medicine",
+        "Spine Surgery",
+        "Trauma Surgery"
+      ]
+    },
+    {
+      "name": "Otolaryngology",
+      "subfields": [
+        "Head and Neck Surgery",
+        "Facial Plastic Surgery",
+        "Pediatric Otolaryngology",
+        "Otology and Neurotology",
+        "Rhinology"
+      ]
+    },
+    {
+      "name": "Public Health",
+      "subfields": [
+        "Epidemiology",
+        "Global Health",
+        "Health Policy",
+        "Environmental Health",
+        "Occupational Health",
+        "Biostatistics"
+      ]
+    }
+  ]
+}
