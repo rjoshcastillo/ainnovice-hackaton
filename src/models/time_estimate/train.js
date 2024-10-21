@@ -25,72 +25,49 @@ function createModel(inputShape) {
 }
 
 async function prepareInputs(dataset) {
-  const csv_dataset = "src/data/patient_historical_data.csv";
-  const medical_concern_categories = await category(
-    "medical_concern",
+  const csv_dataset = "src/data/patient_checkup_estimate.csv";
+  const appointment_time_category = await category(
+    "appointment_time",
     csv_dataset
   );
-  const pain_part_categories = await category("pain_part", csv_dataset);
-  const pain_level_categories = await category("pain_level", csv_dataset);
-  const alcohol_consumption_categories = await category(
-    "alcohol_consumption",
+  const reason_for_visit_category = await category(
+    "reason_for_visit",
     csv_dataset
   );
-  const symptoms_categories = await category("symptoms", csv_dataset);
 
-  /* Split each string and flatten the array */
-  const split_symptoms = symptoms_categories.flatMap((symptom) =>
-    symptom.split(",").map((s) => s.trim())
-  );
-  /* Get unique symptoms */
-  const unique_symptoms = [...new Set(split_symptoms)];
+  const day_of_week_category = await category("day_of_week", csv_dataset);
 
   return dataset.map((item) => {
-    const numericFeatures = [
-      Number(item.age),
-      item.gender === "M" ? 1 : 0,
-      item.employed === "Yes" ? 1 : 0,
-      item.smoking === "Yes" ? 1 : 0,
-      Number(item.height),
-      Number(item.weight),
-      item.breathing_trouble === "Yes" ? 1 : 0,
-      Number(item.temperature),
-    ];
+    const numericFeatures = [Number(item.age), item.gender === "M" ? 1 : 0];
 
-    const medical_concern_ecoded = oneHotEncode(
-      item.medical_concern,
-      medical_concern_categories
+    const appointment_time_category_encoded = oneHotEncode(
+      item.appointment_time,
+      appointment_time_category
     );
-    const body_part_encoded = oneHotEncode(
-      item.pain_part,
-      pain_part_categories
+
+    const reason_for_visit_category_encoded = oneHotEncode(
+      item.reason_for_visit,
+      reason_for_visit_category
     );
-    const alcohol_consumption_encoded = oneHotEncode(
-      item.alcohol_consumption,
-      alcohol_consumption_categories
+    const day_of_week_category_encoded = oneHotEncode(
+      item.day_of_week,
+      day_of_week_category
     );
-    const pain_level_encoded = oneHotEncode(
-      item.pain_level,
-      pain_level_categories
-    );
-    const symptoms_encoded = oneHotEncode(item.symptoms, unique_symptoms);
 
     return {
       input: [
         ...numericFeatures,
-        ...medical_concern_ecoded,
-        ...body_part_encoded,
-        ...pain_level_encoded,
-        ...alcohol_consumption_encoded,
-        ...symptoms_encoded,
+        ///...appointment_time_category_encoded,
+        ...reason_for_visit_category_encoded,
+        ...day_of_week_category_encoded,
       ],
-      label: Number(item.priority),
+      label: Number(item.actual_duration),
     };
   });
 }
 
 async function trainModel() {
-  const dataset = await loadDataset("src/data/patient_historical_data.csv");
+  const dataset = await loadDataset("src/data/patient_checkup_estimate.csv");
 
   const preparedData = await prepareInputs(dataset);
   const inputs = preparedData.map((d) => d.input);
@@ -137,7 +114,7 @@ async function trainModel() {
     process.cwd(),
     "src",
     "models",
-    "triage_model"
+    "time_estimate"
   );
 
   // Check the directory exists

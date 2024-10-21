@@ -13,11 +13,18 @@ async function loadModel() {
 }
 
 async function preprocessInput(input) {
-  const medical_concern_categories = await category("medical_concern");
-  const pain_part_categories = await category("pain_part");
-  const pain_level_categories = await category("pain_level");
-  const alcohol_consumption_categories = await category("alcohol_consumption");
-  const symptoms_categories = await category("symptoms");
+  const csv_dataset = "src/data/patient_historical_data.csv";
+  const medical_concern_categories = await category(
+    "medical_concern",
+    csv_dataset
+  );
+  const pain_part_categories = await category("pain_part", csv_dataset);
+  const pain_level_categories = await category("pain_level", csv_dataset);
+  const alcohol_consumption_categories = await category(
+    "alcohol_consumption",
+    csv_dataset
+  );
+  const symptoms_categories = await category("symptoms", csv_dataset);
 
   /* Split each string and flatten the array */
   const split_symptoms = symptoms_categories.flatMap((symptom) =>
@@ -92,15 +99,12 @@ const patientInput = {
   temperature: 36.5,
 };
 
-/* Test Prediction */
-/* uncomment and do */
-/* npm run triage-predict */
 
-/* predictUrgency(patientInput).then((urgency) => {
-    if (urgency !== null) {
-        console.log(`Predicted urgency: ${urgency}`);
-    } else {
-        console.log("Failed to predict urgency due to input issues.");
-    }
-   });
-*/
+//  predictUrgency(patientInput).then((urgency) => {
+//     if (urgency !== null) {
+//         console.log(`Predicted urgency: ${urgency}`);
+//     } else {
+//         console.log("Failed to predict urgency due to input issues.");
+//     }
+//    });
+
