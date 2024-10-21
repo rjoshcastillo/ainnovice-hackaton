@@ -27,8 +27,12 @@ router.post("/login", (req, res) => {
         status: true,
         message: "Login successful",
         data: {
+          accountId: `${results[0].account_id}`,
           fullName: `${results[0].fname} ${results[0].lname}`,
+          gender: `${results[0].gender}`,
           age: `${results[0].age}`,
+          employed: `${results[0].employed}`,
+          jobDescription: `${results[0].job_description}`
         },
       });
     });

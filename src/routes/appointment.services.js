@@ -42,7 +42,7 @@ router.post("/save", async (req, res) => {
           });
         res.status(201).send({
           status: true,
-          message: `Appointment saved with priority score of ${urgency}`,
+          message: `Appointment saved with priority score of ${payload.urgency}`,
         });
       }
     );
