@@ -1,0 +1,105 @@
+patient_id,age,gender,appointment_date,appointment_time,reason_for_visit,actual_duration,appointment_status,day_of_week
+1,45,Male,2024-10-07,8:00 AM,Annual check-up,30,Confirmed,Monday
+2,38,Female,2024-10-07,8:30 AM,Blood pressure check,20,Confirmed,Monday
+3,50,Male,2024-10-07,9:00 AM,Heart health assessment,45,Confirmed,Monday
+4,29,Female,2024-10-07,9:45 AM,ECG follow-up,30,Confirmed,Monday
+5,33,Female,2024-10-07,10:30 AM,Cholesterol check,22,Confirmed,Monday
+6,42,Male,2024-10-07,11:00 AM,Stress test,60,Confirmed,Monday
+7,36,Female,2024-10-07,1:00 PM,Medication review,28,Confirmed,Monday
+8,55,Male,2024-10-07,1:45 PM,Follow-up on arrhythmia,30,Confirmed,Monday
+9,34,Female,2024-10-08,8:00 AM,Family history assessment,30,Confirmed,Tuesday
+10,45,Male,2024-10-08,8:45 AM,Pre-operative assessment,58,Confirmed,Tuesday
+11,29,Female,2024-10-08,9:30 AM,Follow-up on ECG,20,Confirmed,Tuesday
+12,50,Male,2024-10-08,10:00 AM,Arrhythmia concerns,32,Confirmed,Tuesday
+13,39,Male,2024-10-08,10:45 AM,Medication review,15,Confirmed,Tuesday
+14,41,Female,2024-10-08,11:00 AM,Risk assessment,28,Confirmed,Tuesday
+15,55,Male,2024-10-08,1:00 PM,Cardiac imaging,60,Confirmed,Tuesday
+16,38,Female,2024-10-08,1:45 PM,Stress test follow-up,42,Confirmed,Tuesday
+17,47,Male,2024-10-09,8:00 AM,Heart murmur evaluation,30,Confirmed,Wednesday
+18,30,Female,2024-10-09,8:45 AM,Cholesterol check,18,Confirmed,Wednesday
+19,52,Male,2024-10-09,9:30 AM,Lifestyle consultation,35,Confirmed,Wednesday
+20,34,Female,2024-10-09,10:00 AM,Pre-operative assessment,60,Confirmed,Wednesday
+21,43,Female,2024-10-09,11:00 AM,Hypertension review,30,Confirmed,Wednesday
+22,60,Male,2024-10-09,11:45 AM,Heart failure management,45,Confirmed,Wednesday
+23,37,Female,2024-10-09,1:00 PM,Cardiac medication update,22,Confirmed,Wednesday
+24,28,Male,2024-10-09,1:45 PM,Family history assessment,30,Confirmed,Wednesday
+25,41,Male,2024-10-10,8:00 AM,Routine check-up,28,Confirmed,Thursday
+26,32,Female,2024-10-10,8:30 AM,Follow-up on ECG,20,Confirmed,Thursday
+27,50,Male,2024-10-10,9:15 AM,Cardiac rehabilitation,45,Confirmed,Thursday
+28,35,Female,2024-10-10,10:00 AM,Stress test follow-up,30,Confirmed,Thursday
+29,44,Male,2024-10-10,10:45 AM,Heart murmur evaluation,33,Confirmed,Thursday
+30,29,Female,2024-10-10,11:15 AM,High cholesterol,30,Confirmed,Thursday
+31,47,Male,2024-10-10,1:00 PM,Hypertension review,29,Confirmed,Thursday
+32,38,Female,2024-10-10,1:45 PM,Heart failure management,42,Confirmed,Thursday
+33,52,Male,2024-10-11,8:00 AM,Routine check-up,30,Confirmed,Friday
+34,43,Female,2024-10-11,8:30 AM,Cholesterol check,20,Confirmed,Friday
+35,39,Male,2024-10-11,9:15 AM,Medication review,15,Confirmed,Friday
+36,41,Female,2024-10-11,10:00 AM,Arrhythmia concerns,28,Confirmed,Friday
+37,55,Male,2024-10-11,10:45 AM,Cardiac imaging,58,Confirmed,Friday
+38,38,Female,2024-10-11,11:30 AM,Stress test follow-up,45,Confirmed,Friday
+39,60,Male,2024-10-11,1:00 PM,Family history assessment,30,Confirmed,Friday
+40,34,Female,2024-10-11,1:45 PM,Pre-operative assessment,60,Confirmed,Friday
+41,45,Male,2024-10-07,8:00 AM,Annual check-up,30,Confirmed,Monday
+42,38,Female,2024-10-07,8:30 AM,Blood pressure check,20,Confirmed,Monday
+43,50,Male,2024-10-07,9:00 AM,Heart health assessment,45,Confirmed,Monday
+44,29,Female,2024-10-07,9:45 AM,ECG follow-up,30,Confirmed,Monday
+45,33,Female,2024-10-07,10:30 AM,Cholesterol check,22,Confirmed,Monday
+46,42,Male,2024-10-07,11:00 AM,Stress test,60,Confirmed,Monday
+47,36,Female,2024-10-07,1:00 PM,Medication review,28,Confirmed,Monday
+48,55,Male,2024-10-07,1:45 PM,Follow-up on arrhythmia,30,Confirmed,Monday
+49,34,Female,2024-10-08,8:00 AM,Family history assessment,30,Confirmed,Tuesday
+50,45,Male,2024-10-08,8:45 AM,Pre-operative assessment,58,Confirmed,Tuesday
+51,29,Female,2024-10-08,9:30 AM,Follow-up on ECG,20,Confirmed,Tuesday
+52,50,Male,2024-10-08,10:00 AM,Arrhythmia concerns,32,Confirmed,Tuesday
+53,39,Male,2024-10-08,10:45 AM,Medication review,15,Confirmed,Tuesday
+54,41,Female,2024-10-08,11:00 AM,Risk assessment,28,Confirmed,Tuesday
+55,55,Male,2024-10-08,1:00 PM,Cardiac imaging,60,Confirmed,Tuesday
+56,38,Female,2024-10-08,1:45 PM,Stress test follow-up,42,Confirmed,Tuesday
+57,47,Male,2024-10-09,8:00 AM,Heart murmur evaluation,30,Confirmed,Wednesday
+58,30,Female,2024-10-09,8:45 AM,Cholesterol check,18,Confirmed,Wednesday
+59,52,Male,2024-10-09,9:30 AM,Lifestyle consultation,35,Confirmed,Wednesday
+60,34,Female,2024-10-09,10:00 AM,Pre-operative assessment,60,Confirmed,Wednesday
+61,43,Female,2024-10-09,11:00 AM,Hypertension review,30,Confirmed,Wednesday
+62,60,Male,2024-10-09,11:45 AM,Heart failure management,45,Confirmed,Wednesday
+63,37,Female,2024-10-09,1:00 PM,Cardiac medication update,22,Confirmed,Wednesday
+64,28,Male,2024-10-09,1:45 PM,Family history assessment,30,Confirmed,Wednesday
+65,41,Male,2024-10-10,8:00 AM,Routine check-up,28,Confirmed,Thursday
+66,32,Female,2024-10-10,8:30 AM,Follow-up on ECG,20,Confirmed,Thursday
+67,50,Male,2024-10-10,9:15 AM,Cardiac rehabilitation,45,Confirmed,Thursday
+68,35,Female,2024-10-10,10:00 AM,Stress test follow-up,30,Confirmed,Thursday
+69,44,Male,2024-10-10,10:45 AM,Heart murmur evaluation,33,Confirmed,Thursday
+70,29,Female,2024-10-10,11:15 AM,High cholesterol,30,Confirmed,Thursday
+71,47,Male,2024-10-10,1:00 PM,Hypertension review,29,Confirmed,Thursday
+72,38,Female,2024-10-10,1:45 PM,Heart failure management,42,Confirmed,Thursday
+73,52,Male,2024-10-11,8:00 AM,Routine check-up,30,Confirmed,Friday
+74,43,Female,2024-10-11,8:30 AM,Cholesterol check,20,Confirmed,Friday
+75,39,Male,2024-10-11,9:15 AM,Medication review,15,Confirmed,Friday
+76,41,Female,2024-10-11,10:00 AM,Arrhythmia concerns,28,Confirmed,Friday
+77,55,Male,2024-10-11,10:45 AM,Cardiac imaging,58,Confirmed,Friday
+78,38,Female,2024-10-11,11:30 AM,Stress test follow-up,45,Confirmed,Friday
+79,60,Male,2024-10-11,1:00 PM,Family history assessment,30,Confirmed,Friday
+80,34,Female,2024-10-11,1:45 PM,Pre-operative assessment,60,Confirmed,Friday
+81,45,Male,2024-10-12,8:00 AM,Annual check-up,30,Confirmed,Saturday
+82,38,Female,2024-10-12,8:30 AM,Blood pressure check,20,Confirmed,Saturday
+83,50,Male,2024-10-12,9:00 AM,Heart health assessment,45,Confirmed,Saturday
+84,29,Female,2024-10-12,9:45 AM,ECG follow-up,30,Confirmed,Saturday
+85,33,Female,2024-10-12,10:30 AM,Cholesterol check,22,Confirmed,Saturday
+86,42,Male,2024-10-12,11:00 AM,Stress test,60,Confirmed,Saturday
+87,36,Female,2024-10-12,1:00 PM,Medication review,28,Confirmed,Saturday
+88,55,Male,2024-10-12,1:45 PM,Follow-up on arrhythmia,30,Confirmed,Saturday
+89,34,Female,2024-10-13,8:00 AM,Family history assessment,30,Confirmed,Sunday
+90,45,Male,2024-10-13,8:45 AM,Pre-operative assessment,58,Confirmed,Sunday
+91,29,Female,2024-10-13,9:30 AM,Follow-up on ECG,20,Confirmed,Sunday
+92,50,Male,2024-10-13,10:00 AM,Arrhythmia concerns,32,Confirmed,Sunday
+93,39,Male,2024-10-13,10:45 AM,Medication review,15,Confirmed,Sunday
+94,41,Female,2024-10-13,11:00 AM,Risk assessment,28,Confirmed,Sunday
+95,55,Male,2024-10-13,1:00 PM,Cardiac imaging,60,Confirmed,Sunday
+96,38,Female,2024-10-13,1:45 PM,Stress test follow-up,42,Confirmed,Sunday
+97,47,Male,2024-10-14,8:00 AM,Heart murmur evaluation,30,Confirmed,Monday
+98,30,Female,2024-10-14,8:45 AM,Cholesterol check,18,Confirmed,Monday
+99,52,Male,2024-10-14,9:30 AM,Lifestyle consultation,35,Confirmed,Monday
+100,34,Female,2024-10-14,10:00 AM,Pre-operative assessment,60,Confirmed,Monday
+101,43,Female,2024-10-14,11:00 AM,Hypertension review,30,Confirmed,Monday
+102,60,Male,2024-10-14,11:45 AM,Heart failure management,45,Confirmed,Monday
+103,37,Female,2024-10-14,1:00 PM,Cardiac medication update,22,Confirmed,Monday
+104,28,Male,2024-10-14,1:45 PM,Family history assessment,30,Confirmed,Monday

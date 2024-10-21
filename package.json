@@ -7,7 +7,9 @@
   "scripts": {
     "start": "nodemon server.js",
     "triage-train": "node src/models/triage_model/train.js",
-    "triage-predict": "node src/controllers/triage.controller.js"
+    "time-train": "node src/models/time_estimate/train.js",
+    "triage-predict": "node src/controllers/triage.controller.js",
+    "time-predict": "node src/controllers/time_estimate.controller.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,7 @@
   "dependencies": {
     "@tensorflow/tfjs-node": "^4.21.0",
     "ainnovice-server": "file:",
+    "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
     "express": "^4.21.1",
     "mysql2": "^3.11.3",

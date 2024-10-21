@@ -1,24 +1,23 @@
 import { readCSV, readCSVUniqueData } from "./csv-helper.js";
 
-export async function loadDataset() {
+export async function loadDataset(datasets) {
   return new Promise((resolve, reject) => {
-    const dataset = [];
-    readCSV("src/data/patient_historical_data.csv", (patientsData) => {
-      dataset.push(...patientsData);
-      resolve(dataset);
+    const output = [];
+    readCSV(datasets, (patientsData) => {
+      output.push(...patientsData);
+      resolve(output);
     });
   });
 }
 
-export function category(category) {
+export function category(category, datasets) {
   return new Promise((resolve, reject) => {
-    const dataset = [];
-    readCSVUniqueData(
-      "src/data/patient_historical_data.csv",
+    const output = [];
+    readCSVUniqueData(datasets,
       category,
       (data) => {
-        dataset.push(...data);
-        resolve(dataset);
+        output.push(...data);
+        resolve(output);
       }
     );
   });
