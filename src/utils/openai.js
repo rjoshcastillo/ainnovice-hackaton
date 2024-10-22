@@ -1,7 +1,8 @@
 import OpenAI from "openai";
 import medicalFields from "../data/medical_fields.json" assert { type: "json" };
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey:
+    "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",
 });
 
 export async function getBasicResponses(message) {
