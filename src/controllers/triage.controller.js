@@ -36,11 +36,11 @@ async function preprocessInput(input) {
   const numericFeatures = [
     Number(input.age),
     input.gender === "M" ? 1 : 0,
-    input.employed === "Yes" ? 1 : 0,
-    input.smoking === "Yes" ? 1 : 0,
+    Number(input.employed),
+    Number(input.smoking),
     Number(input.height),
     Number(input.weight),
-    input.breathing_trouble === "Yes" ? 1 : 0,
+    Number(input.breathing_trouble),
     Number(input.temperature),
   ];
 
@@ -86,12 +86,12 @@ export async function predictUrgency(patientInput) {
 const patientInput = {
   age: 90,
   gender: "F",
-  employed: "No",
+  employed: 0,
   alcohol_consumption: "Moderate",
-  smoking: "Yes",
+  smoking: 1,
   height: 176,
   weight: 71,
-  breathing_trouble: "No",
+  breathing_trouble: 0,
   pain_level: 9,
   pain_part: "Shoulder",
   medical_concern: "Asthma",

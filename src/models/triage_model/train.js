@@ -49,11 +49,11 @@ async function prepareInputs(dataset) {
     const numericFeatures = [
       Number(item.age),
       item.gender === "M" ? 1 : 0,
-      item.employed === "Yes" ? 1 : 0,
-      item.smoking === "Yes" ? 1 : 0,
+      Number(item.employed),
+      Number(item.smoking),
       Number(item.height),
       Number(item.weight),
-      item.breathing_trouble === "Yes" ? 1 : 0,
+      Number(item.breathing_trouble),
       Number(item.temperature),
     ];
 
