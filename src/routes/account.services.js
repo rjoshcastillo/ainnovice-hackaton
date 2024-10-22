@@ -32,7 +32,10 @@ router.post("/login", (req, res) => {
           gender: `${results[0].gender}`,
           age: `${results[0].age}`,
           employed: `${results[0].employed}`,
-          jobDescription: `${results[0].job_description}`
+          jobDescription: `${results[0].job_description}`,
+          email: `${results[0].email}`,
+          contact_number: `${results[0].contact_number}`,
+          type: `${results[0].type}`
         },
       });
     });
