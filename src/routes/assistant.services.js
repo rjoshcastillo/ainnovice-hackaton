@@ -26,11 +26,11 @@ router.post("/generalMedicalNeed", async (req, res) => {
     const payload = req.body;
     await getRelatedMedicalField(payload).then((result) => {
       if (result !== null) {
-          res.send({
-            result : result
-        });
+        return res.status(200).json({ status: true, data: result });
       } else {
-        res.send("Failed to load message");
+        return res
+          .status(401)
+          .json({ status: false, message: "Failed to load message" });
       }
     });
   } catch (error) {}

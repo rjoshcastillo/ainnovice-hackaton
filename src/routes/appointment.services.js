@@ -120,4 +120,42 @@ router.post("/cancel", async (req, res) => {
   }
 });
 
+
+router.get("/get/:account_id", async (req, res) => {
+  const accountId = req.params.account_id;
+  try {
+    const query = `
+      SELECT 
+    a.appointment_id,
+    a.account_id,
+    a.medical_concern, 
+    a.status, 
+    doc.name as doctor,
+    doc.specialty, 
+    a.appointment_date, 
+    a.appointment_start,
+    a.appointment_end
+    FROM 
+        appointments AS a
+    JOIN 
+        doctors AS doc ON a.doctor_id = doc.doctor_id
+    WHERE a.account_id = ?`;
+
+    db.query(query, [accountId], (err, result) => {
+      if (err) {
+        return res
+          .status(500)
+          .json({ status: false, message: "Error fetching appointments" });
+      }
+
+      res.status(200).send({
+        status: true,
+        data: result,
+      });
+    });
+  } catch (error) {
+    res.status(500).json({ status: false, message: "Server error" });
+  }
+});
+
 export default router;
