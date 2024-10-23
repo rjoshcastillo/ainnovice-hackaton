@@ -1,5 +1,6 @@
 import express from "express";
 import db from "../config/db.config.js";
+import { findAvailableSlots } from "../controllers/assistant/appointment.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -56,19 +57,64 @@ router.post("/save", async (req, res) => {
 
 
 
-
+// PARAMETERS
+// {
+//   "doctor_id":"7",
+//   "appointment_date": "2024-10-23"
+// }
 router.post("/available-doctor", async (req, res) => {
   const payload = req.body;
 
   try {
-    //get doctor id
-    //get available dates and time based on duration
+    //Check if doctor is legit
+    let getDoctors = "SELECT * FROM doctors d inner join doctor_operating_hours doh on doh.doctor_id = d.doctor_id WHERE d.doctor_id = ? AND doh.day = ?";
 
-    res.status(201).send({
-      status: true,
-      message: `Ongoing Development`,
+    db.query(getDoctors, [payload.doctor_id, payload.appointment_date], async (err, results) => {
+      
+      if (err) {
+        return res.status(500).json({ message: "Server error", error: err });
+      }
+
+      if (results.length === 0) {
+        return res
+          .status(401)
+          .json({ status: false, message: "The doctor is not exist." });
+      }
+
+      let getDoctorsAppointment = "SELECT appointment_start as start,appointment_end as end FROM appointments where doctor_id = ? and appointment_date = ?";
+      
+      db.query(getDoctorsAppointment, [payload.doctor_id, payload.appointment_date], async (err, results1) => {
+        
+        if (err) {
+          return res.status(500).json({ message: "Server error", error: err });
+        }
+        if(results[0].limit != ""){ 
+          if (results1.length == results[0].limit) {
+            return res
+              .status(401)
+              .json({ status: false, message: "There's no open slot."});
+          }
+          else{
+            const appointments = results1;
+  
+            const clinicStart = results[0].hours_start;
+            const clinicEnd = results[0].hours_end;
+      
+            const availableSlots = await findAvailableSlots(appointments, clinicStart, clinicEnd);
+            
+            res.status(200).json({
+              status: true,
+              message: results[0].name +" "+ results[0].specialty + " is available.",
+              availableSlots: availableSlots,
+            });
+          }
+        }
+
+      });
+
+      
+      
     });
-
 
   } catch (error) {
     return res.status(500).send({
@@ -87,7 +133,7 @@ router.post("/appointment-settler", async (req, res) => {
     //set status active
     //date
     //time
-    //priorityop
+    //priority
 
     res.status(201).send({
       status: true,
