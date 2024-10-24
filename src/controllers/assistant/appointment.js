@@ -38,3 +38,10 @@ export async function findAvailableSlots(appointments, clinicStart, clinicEnd) {
         end: `${Math.floor(slot.end / 60).toString().padStart(2, '0')}:${(slot.end % 60).toString().padStart(2, '0')}`
     }));
 }
+
+export async function getCurrentTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0'); // Get hours and pad with zero if needed
+    const minutes = String(now.getMinutes()).padStart(2, '0'); // Get minutes and pad with zero if needed
+    return `${hours}:${minutes}`; // Format as HH:mm
+}

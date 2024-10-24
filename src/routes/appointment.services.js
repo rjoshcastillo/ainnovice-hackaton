@@ -1,6 +1,6 @@
 import express from "express";
 import db from "../config/db.config.js";
-import { findAvailableSlots } from "../controllers/assistant/appointment.js";
+import { findAvailableSlots, getCurrentTime } from "../controllers/assistant/appointment.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -81,7 +81,7 @@ router.post("/available-doctor", async (req, res) => {
           .json({ status: false, message: "The doctor is not exist." });
       }
 
-      let getDoctorsAppointment = "SELECT appointment_start as start,appointment_end as end FROM appointments where doctor_id = ? and appointment_date = ?";
+      let getDoctorsAppointment =  `SELECT appointment_start as start,appointment_end as end FROM appointments where doctor_id = ? and appointment_date = ? and status != "Cancelled" `;
       
       db.query(getDoctorsAppointment, [payload.doctor_id, payload.appointment_date], async (err, results1) => {
         
@@ -149,8 +149,8 @@ router.post("/appointment-settler", async (req, res) => {
       const query = `
       INSERT INTO appointments 
       (account_id, doctor_id, alcohol_consumption, smoking, height, weight,
-       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature,appointment_date, appointment_start,appointment_end,urgency)  
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?)
+       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature,appointment_date, appointment_start,appointment_end,urgency,status)  
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?, ?)
     `;
     db.query(query,[
       payload.account_id,
@@ -169,6 +169,7 @@ router.post("/appointment-settler", async (req, res) => {
       payload.appointment_start,
       payload.appointment_end,
       payload.urgency,
+      payload.status,
     ],(error, results) => {
       if (error)
         return res.status(500).send({
@@ -194,12 +195,45 @@ router.post("/cancel", async (req, res) => {
   const payload = req.body;
 
   try {
-    //MAKE THE APPOINTMENT in CANCEL STATUS
-    //INITIATE ANOTHER APOINTMENTS BASED ON PRIORITY.
-    res.status(201).send({
-      status: true,
-      message: `Ongoing Development`,
-    });
+
+    const query = `SELECT * FROM appointments where appointment_id = ?`;
+
+    db.query(query, [payload.appointment_id], async(error, results) => {
+      if(results.length > 0){
+        //Cancelled the status
+        const query = `UPDATE appointments SET status = "Cancelled" WHERE appointment_id  = ?`;
+
+        db.query(query, [payload.appointment_id], async(error, results) => {
+        
+          if(results){
+            const datetime= await getCurrentTime();
+
+            const query = `SELECT * FROM appointments WHERE appointment_date = ? and appointment_start >= ? ORDER BY urgency ASC LIMIT 1`;
+
+            db.query(query,[ payload.appointment_date, datetime], async(error, results) => {
+              ////////////////////////////////
+              //NOTIFY THE PATIENT IN RESULTS
+              ////////////////////////////////
+              res.status(201).send({
+                status: true,
+                message: `Appointment ${payload.appointment_id} is now cancelled.`,
+                params1: datetime,
+                params: results
+              });
+              
+            });
+          }
+          else{
+            return res.status(500).send({
+              status: false,
+              message: "Failed to fetch data from external API",
+            });
+          }
+        });
+      }
+
+    })
+    
   } catch (error) {
     return res.status(500).send({
       status: false,
