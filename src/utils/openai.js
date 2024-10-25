@@ -22,7 +22,7 @@ export async function matchedField(data) {
     list of medical fields : ${medicalFields.fields} as medical_fields.
     ${data.medical_concern}  as medical_concern.
     ${medicalFields}  as medical_fields.
-    Base on medical_concern get the best relevant medical needed in medical_fields, ensure to return only and most appropriate, return it as medical_field_needed only.
+    Base on medical_concern get the best relevant medical needed in medical_fields, ensure to return only and most appropriate, return it as medical_field_needed: { name, description} only.
     return as a json format.
   `;
 

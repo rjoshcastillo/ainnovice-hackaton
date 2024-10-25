@@ -7,55 +7,6 @@ router.get("/", async (req, res) => {
   res.send("Appointment Services!");
 });
 
-router.post("/save", async (req, res) => {
-  const payload = req.body;
-
-  try {
-    const query = `
-      INSERT INTO appointments 
-      (account_id, alcohol_consumption, smoking, height, weight,
-       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature,appointment_date, urgency)  
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `;
-
-    db.query(
-      query,
-      [
-        payload.account_id,
-        payload.alcohol_consumption,
-        payload.smoking,
-        payload.height,
-        payload.weight,
-        payload.breathing_trouble,
-        payload.pain_level,
-        payload.pain_part,
-        payload.medical_concern,
-        payload.symptoms,
-        payload.temperature,
-        payload.appointment_date,
-        payload.urgency,
-      ],
-      (error, results) => {
-        if (error)
-          return res.status(500).send({
-            status: false,
-            message: `Failed saving appointment ${error}`,
-          });
-        res.status(201).send({
-          status: true,
-          message: `Appointment saved with priority score of ${payload.urgency}`,
-        });
-      }
-    );
-  } catch (error) {
-    return res.status(500).send({
-      status: false,
-      message: "Failed to fetch data from external API",
-    });
-  }
-});
-
-
 
 // PARAMETERS
 // {
@@ -78,7 +29,7 @@ router.post("/available-doctor", async (req, res) => {
       if (results.length === 0) {
         return res
           .status(401)
-          .json({ status: false, message: "The doctor is not exist." });
+          .json({ status: false, message: "The doctor does not exist." });
       }
 
       let getDoctorsAppointment =  `SELECT appointment_start as start,appointment_end as end FROM appointments where doctor_id = ? and appointment_date = ? and status != "Cancelled" `;
@@ -99,12 +50,13 @@ router.post("/available-doctor", async (req, res) => {
   
             const clinicStart = results[0].hours_start;
             const clinicEnd = results[0].hours_end;
-      
-            const availableSlots = await findAvailableSlots(appointments, clinicStart, clinicEnd);
+            
+            const availableSlots = await findAvailableSlots(appointments, clinicStart, clinicEnd, payload.preferredTime);
             
             res.status(200).json({
               status: true,
               message: results[0].name +" "+ results[0].specialty + " is available.",
+              appointments: appointments,
               availableSlots: availableSlots,
             });
           }
@@ -123,25 +75,7 @@ router.post("/available-doctor", async (req, res) => {
     });
   }
 });
-// PARAMETERS
-// {
-//   "account_id": "7",
-//   "doctor_id": "7",
-//   "alcohol_consumption": "heavy",
-//   "smoking": "",
-//   "height": "",
-//   "weight": "",
-//   "breathing_trouble": "",
-//   "pain_level": "",
-//   "pain_part": "",
-//   "medical_concern": "",
-//   "symptoms": "",
-//   "temperature": "",
-//   "appointment_date": "2024-10-25",
-//   "appointment_start": "08:00",
-//   "appointment_end": "08:30",
-//   "urgency": "5"
-// }
+
 router.post("/appointment-settler", async (req, res) => {
   const payload = req.body;
 
@@ -155,14 +89,14 @@ router.post("/appointment-settler", async (req, res) => {
     db.query(query,[
       payload.account_id,
       payload.doctor_id,
-      payload.alcohol_consumption,
+      payload.alcoholConsumption,
       payload.smoking,
       payload.height,
       payload.weight,
-      payload.breathing_trouble,
-      payload.pain_level,
-      payload.pain_part,
-      payload.medical_concern,
+      payload.breathingTrouble,
+      payload.painLevel,
+      payload.painPart,
+      payload.medicalConcern,
       payload.symptoms,
       payload.temperature,
       payload.appointment_date,
