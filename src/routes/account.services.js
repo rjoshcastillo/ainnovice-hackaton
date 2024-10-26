@@ -1,5 +1,6 @@
 import express from "express";
-import db from "../config/db.config.js";
+import db from "../database/db.config.js";
+import { loginQuery } from "../database/query/account_queries.js";
 
 const router = express.Router();
 
@@ -10,9 +11,8 @@ router.get("/", async (req, res) => {
 router.post("/login", (req, res) => {
   try {
     const { email, password } = req.body;
-    const query = "SELECT * FROM accounts WHERE email = ? AND password = ?";
 
-    db.query(query, [email, password], (err, results) => {
+    db.query(loginQuery, [email, password], (err, results) => {
       if (err) {
         return res.status(500).json({ message: "Server error", error: err });
       }
@@ -27,15 +27,21 @@ router.post("/login", (req, res) => {
         status: true,
         message: "Login successful",
         data: {
-          accountId: `${results[0].account_id}`,
-          fullName: `${results[0].fname} ${results[0].lname}`,
-          gender: `${results[0].gender}`,
-          age: `${results[0].age}`,
-          employed: `${results[0].employed}`,
-          jobDescription: `${results[0].job_description}`,
-          email: `${results[0].email}`,
-          contact_number: `${results[0].contact_number}`,
-          type: `${results[0].type}`
+          account_id: results[0].account_id,
+          email: results[0].email,
+          full_name: `${results[0].fname} ${results[0].lname}`,
+          age: results[0].age,
+          gender: results[0].gender,
+          employed: results[0].employed,
+          job_description: results[0].job_description,
+          contact_number: results[0].contact_number,
+          employed: results[0].employed,
+          type: results[0].type,
+          id:   results[0].type === "doctor"
+              ? results[0].doctor_id
+              : results[0].type === "nurse"
+              ? results[0].nurse_id
+              : results[0].patient_id,
         },
       });
     });
