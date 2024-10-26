@@ -186,7 +186,13 @@ export const getAppointmentByPatientId = `
     doc.specialty, 
     a.appointment_date, 
     a.appointment_start,
-    a.appointment_end
+    a.appointment_end,
+      a.symptoms,
+    a.weight,
+    a.height,
+    a.alcohol_consumption,
+    a.smoking,
+    a.created_at
     FROM 
         appointments AS a
     JOIN 
@@ -196,8 +202,38 @@ export const getAppointmentByPatientId = `
     JOIN 
         accounts AS acc ON acc.account_id = doc.account_id
     WHERE a.patient_id = ?`;
+
+export const getAppointmentByDoctorId = `
+    SELECT 
+    a.appointment_id,
+    a.patient_id,
+    p.account_id,
+    a.medical_concern,
+    CONCAT(acc.fname, ' ', acc.lname) AS patient,
+    a.status, 
+    a.appointment_date, 
+    a.appointment_start,
+    a.appointment_end,
+    a.symptoms,
+    a.weight,
+    a.height,
+    a.alcohol_consumption,
+    a.smoking,
+    a.created_at
+FROM appointments AS a
+JOIN patients AS p ON p.patient_id = a.patient_id
+JOIN accounts AS acc ON acc.account_id = p.account_id
+WHERE a.doctor_id = ?
+
+`;
+export const checkForAppointmentDuplicate = `
+        SELECT * FROM appointments WHERE appointment_date = ? AND patient_id = ? AND doctor_id = ?
+`;
+
 export default {
   processAppointment,
   insertToBufferAppointment,
   getAppointmentByPatientId,
+  getAppointmentByDoctorId,
+  checkForAppointmentDuplicate,
 };

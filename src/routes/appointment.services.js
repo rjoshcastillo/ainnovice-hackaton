@@ -4,6 +4,8 @@ import {
   processAppointment,
   insertToBufferAppointment,
   getAppointmentByPatientId,
+  checkForAppointmentDuplicate,
+  getAppointmentByDoctorId,
 } from "../database/query/appointment_queries.js";
 
 import {
@@ -99,71 +101,84 @@ router.post("/available-doctor", async (req, res) => {
 router.post("/appointment-settler", async (req, res) => {
   const payload = req.body;
 
-  db.beginTransaction((err) => {
-    if (err) {
-      return res
-        .status(500)
-        .json({ status: false, data: "Transaction start failed" });
-    }
+  db.query(
+    checkForAppointmentDuplicate,
+    [payload.appointmentDate, payload.patientId, payload.doctorId],
+    (error, result) => {
+      if (result.length > 0) {
+        return res.status(409).json({
+          status: false,
+          data: "Appointment already exists for this date.",
+        });
+      }
 
-    db.query(
-      insertToBufferAppointment,
-      [
-        payload.patientId,
-        payload.doctorId,
-        payload.alcoholConsumption,
-        payload.smoking,
-        payload.height,
-        payload.weight,
-        payload.breathingTrouble,
-        payload.painLevel,
-        payload.painPart,
-        payload.medicalConcern,
-        payload.symptoms,
-        payload.temperature,
-        payload.estimate,
-        payload.appointmentDate,
-        payload.urgency,
-        payload.status,
-      ],
-      (error, results) => {
-        if (error) {
-          return db.rollback(() => {
-            res.status(500).json({
-              status: false,
-              data: `Error creating appointment ${error}`,
-            });
-          });
+      db.beginTransaction((err) => {
+        if (err) {
+          return res
+            .status(500)
+            .json({ status: false, data: "Transaction start failed" });
         }
 
         db.query(
-          processAppointment,
-          [payload.appointmentDate, payload.doctorId],
-          (error, processResult) => {
-            if (error || processResult.affectedRows < 1) {
+          insertToBufferAppointment,
+          [
+            payload.patientId,
+            payload.doctorId,
+            payload.alcoholConsumption,
+            payload.smoking,
+            payload.height,
+            payload.weight,
+            payload.breathingTrouble,
+            payload.painLevel,
+            payload.painPart,
+            payload.medicalConcern,
+            payload.symptoms,
+            payload.temperature,
+            payload.estimate,
+            payload.appointmentDate,
+            payload.urgency,
+            payload.status,
+          ],
+          (error, results) => {
+            if (error) {
               return db.rollback(() => {
                 res.status(500).json({
                   status: false,
-                  data: "Error processing appointment, rolling back changes",
+                  data: `Error creating appointment ${error}`,
                 });
               });
             }
 
-            db.commit((err) => {
-              if (err) {
-                return db.rollback(() => {
-                  console.error("Transaction commit failed:", err);
-                  res.status(500).json({ error: "Transaction failed" });
+            db.query(
+              processAppointment,
+              [payload.appointmentDate, payload.doctorId],
+              (error, processResult) => {
+                if (error || processResult.affectedRows < 1) {
+                  return db.rollback(() => {
+                    res.status(500).json({
+                      status: false,
+                      data: "Error processing appointment, rolling back changes",
+                    });
+                  });
+                }
+
+                db.commit((err) => {
+                  if (err) {
+                    return db.rollback(() => {
+                      console.error("Transaction commit failed:", err);
+                      res.status(500).json({ data: "Transaction failed" });
+                    });
+                  }
+
+                  res.status(200).json({ data: processResult });
                 });
               }
-
-              res.status(200).json({ data: processResult });
-            });
+            );
           }
         );
-      }
-    );
-  });
+      });
+    }
+  );
 });
 
 router.post("/cancel", async (req, res) => {
@@ -215,9 +230,17 @@ router.post("/cancel", async (req, res) => {
   }
 });
 
-router.get("/appointment-patient/:account_id", async (req, res) => {
-  const patient_id = req.params.account_id;
-  db.query(getAppointmentByPatientId, [patient_id], (err, result) => {
+router.get("/appointment-patient", async (req, res) => {
+  const { id, type } = req.query;
+
+  const query =
+    type === "doctor"
+      ? getAppointmentByDoctorId
+      : type === "patient"
+      ? getAppointmentByPatientId
+      : getAppointmentByPatientId;
+
+  db.query(query, [id], (err, result) => {
     if (err) {
       return res.status(500).json({
         status: false,
