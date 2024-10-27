@@ -2,10 +2,10 @@
   "name": "ainnovice-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon index.js",
     "triage-train": "node src/models/triage_model/train.js",
     "time-train": "node src/models/time_estimate/train.js",
     "triage-predict": "node src/controllers/triage.controller.js",
