@@ -36,7 +36,9 @@ app.use(account, accountServices);
 app.use(appointment, appointmentServices);
 app.use(assistant, assistantServices);
 app.use(doctor, doctorServices);
-
+app.get("/test", (req, res) => {
+  res.send("test")
+})
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
