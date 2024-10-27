@@ -1,11 +1,11 @@
 import express from "express";
-import machineLearning from "../src/routes/ml.services.js";
-import accountServices from "../src/routes/account.services.js";
-import appointmentServices from "../src/routes/appointment.services.js";
-import assistantServices from "../src/routes/assistant.services.js";
-import doctorServices from '../src/routes/doctor.services.js';
+import machineLearning from "./src/routes/ml.services.js";
+import accountServices from "./src/routes/account.services.js";
+import appointmentServices from "./src/routes/appointment.services.js";
+import assistantServices from "./src/routes/assistant.services.js";
+import doctorServices from './src/routes/doctor.services.js';
 
-import db from "../src/database/db.config.js";
+import db from "./src/database/db.config.js";
 import cors from "cors";
 
 const app = express();

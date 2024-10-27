@@ -1,5 +1,4 @@
-export const processAppointment = `
-    INSERT INTO appointments (
+export const processAppointment = `INSERT INTO appointments (
         appointment_id,
         patient_id,
         doctor_id,
@@ -18,7 +17,6 @@ export const processAppointment = `
         appointment_end,
         estimate,
         urgency,
-        status,
         created_at
     )
     WITH CTE AS (
@@ -39,8 +37,7 @@ export const processAppointment = `
             a.appointment_date, 
             a.estimate, 
             a.urgency, 
-            d.hours_start,
-            a.status,
+            d.hours_start, 
             (EXTRACT(HOUR FROM d.hours_start) * 60) + EXTRACT(MINUTE FROM d.hours_start) AS doctor_schedule_start,
             a.created_at
         FROM 
@@ -49,7 +46,7 @@ export const processAppointment = `
             doctor_operating_hours AS d 
         ON 
             a.doctor_id = d.doctor_id
-        WHERE appointment_date = ? AND a.doctor_id = ?
+        WHERE appointment_date = "2024-10-28" AND a.doctor_id = 44
         GROUP BY appointment_id
     ),
     CTE_Ranked AS (
@@ -72,7 +69,6 @@ export const processAppointment = `
             estimate, 
             urgency, 
             hours_start,
-            status,
             created_at,
             CASE 
                 WHEN urgency >= 9 THEN 1
@@ -105,7 +101,6 @@ export const processAppointment = `
             urgency_rank,
             ROW_NUMBER() OVER (ORDER BY urgency_rank, created_at) AS row_num, 
             SUM(estimate) OVER (ORDER BY urgency_rank, created_at) + COALESCE(doctor_schedule_start, 0) AS appointment_end,
-            status,
             created_at
         FROM 
             CTE_Ranked
@@ -143,7 +138,6 @@ export const processAppointment = `
         ) AS appointment_end, 
         estimate, 
         urgency,
-        status,
         created_at
     FROM 
         CTE_Cumulative
@@ -164,15 +158,14 @@ export const processAppointment = `
         appointment_end = VALUES(appointment_end),
         estimate = VALUES(estimate),
         urgency = VALUES(urgency),
-        status = VALUES(status),
         created_at = VALUES(created_at);
 `;
 
 export const insertToBufferAppointment = `
       INSERT INTO buffer_appointments 
       (patient_id, doctor_id, alcohol_consumption, smoking, height, weight,
-       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature, estimate,appointment_date,urgency,status)  
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? ,?)
+       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature, estimate,appointment_date,urgency)  
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)
     `;
 
 export const getAppointmentByPatientId = `

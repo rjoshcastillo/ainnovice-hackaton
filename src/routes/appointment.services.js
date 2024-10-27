@@ -26,10 +26,22 @@ router.get("/", async (req, res) => {
 router.post("/available-doctor", async (req, res) => {
   const payload = req.body;
 
+  let getDoctorOperatingHour = "SELECT doh.doctor_id, `limit` FROM doctors AS d INNER JOIN doctor_operating_hours doh ON doh.doctor_id = d.doctor_id WHERE d.doctor_id = ?  AND doh.day = ?";
+
+  db.query(getDoctorOperatingHour,
+    [payload.doctor_id, payload.appointment_date], 
+    async (err, res) => {
+      if (res.length === 0) {
+        return res
+          .status(401)
+          .json({ status: false, message: "Doctor does not have schedule for selected date." });
+      }
+
+      
+  })
+
   try {
-    //Check if doctor is legit
-    let getDoctors =
-      "SELECT * FROM doctors d inner join doctor_operating_hours doh on doh.doctor_id = d.doctor_id WHERE d.doctor_id = ? AND doh.day = ?";
+    
 
     db.query(
       getDoctors,
@@ -136,8 +148,7 @@ router.post("/appointment-settler", async (req, res) => {
             payload.temperature,
             payload.estimate,
             payload.appointmentDate,
-            payload.urgency,
-            payload.status,
+            payload.urgency
           ],
           (error, results) => {
             if (error) {
