@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon api/index.js",
     "triage-train": "node src/models/triage_model/train.js",
     "time-train": "node src/models/time_estimate/train.js",
     "triage-predict": "node src/controllers/triage.controller.js",
