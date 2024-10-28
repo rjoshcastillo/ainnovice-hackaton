@@ -274,7 +274,11 @@ router.post("/update-appointment-summary", async (req, res) => {
   const updateSummaryQuery =
     "UPDATE appointments SET findings = ? WHERE appointment_id = ?";
 
-  const summary = `{ findings: ${payload.summary}, lab_request: [${payload.equipments}] }`;
+  const summary = `{
+      "findings": "${payload.summary}", 
+      "lab_request": ${JSON.stringify(payload.equipments)}
+    }`;
+
   db.query(
     updateSummaryQuery,
     [summary, payload.appointment_id],
@@ -299,6 +303,19 @@ router.post("/save", async (req, res) => {
       return res.send({
         result: result,
       });
+    }
+  );
+});
+
+router.post("/lab-request", async (req, res) => {
+  const payload = req.body;
+
+  const query = `INSERT INTO lab_appointments (patient_id,  equipment_id, appointment_date, status) VALUES (?, ?, ?, ?)`;
+  db.query(
+    query,
+    [payload.patientId, payload.equipment_id, payload.appointment_date, "Waiting"],
+    async (req, result) => {
+      res.status(200).json({ data: result });
     }
   );
 });
