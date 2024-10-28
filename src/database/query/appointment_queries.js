@@ -46,7 +46,7 @@ export const processAppointment = `INSERT INTO appointments (
             doctor_operating_hours AS d 
         ON 
             a.doctor_id = d.doctor_id
-        WHERE appointment_date = "2024-10-28" AND a.doctor_id = 44
+        WHERE appointment_date = ? AND a.doctor_id = ?
         GROUP BY appointment_id
     ),
     CTE_Ranked AS (
@@ -217,7 +217,6 @@ FROM appointments AS a
 JOIN patients AS p ON p.patient_id = a.patient_id
 JOIN accounts AS acc ON acc.account_id = p.account_id
 WHERE a.doctor_id = ?
-
 `;
 export const checkForAppointmentDuplicate = `
         SELECT * FROM appointments WHERE appointment_date = ? AND patient_id = ? AND doctor_id = ?
