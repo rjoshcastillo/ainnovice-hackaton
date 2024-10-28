@@ -266,4 +266,38 @@ router.get("/appointment-patient", async (req, res) => {
   });
 });
 
+
+router.post("/update", async (req, res) => {
+  const payload = req.body;
+
+  const appointmentsQuery = `SELECT * FROM appointments WHERE appointment_id = ?`;
+  db.query(appointmentsQuery, [payload.appointment_id], (err, results) => {
+    if (results.length < 1) {
+      return res.status(404).send({
+        status: false,
+        message: "No appointment found",
+      });
+    }
+
+    const updateAppointmentQuery = `UPDATE appointments SET status = ? WHERE appointment_id = ?`;
+    db.query(
+      updateAppointmentQuery,
+      [payload.status, payload.appointment_id],
+      (err, result1) => {
+        if (result1.changedRows > 0) {
+          return res.status(200).send({
+            status: true,
+            message: `Appointment status changed to ${payload.status}`,
+          });
+        } else {
+          return res.status(200).send({
+            status: false,
+            message: "No changes made to the appointment status",
+            appointment_status: payload.status,
+          });
+        }
+      }
+    );
+  });
+});
 export default router;
