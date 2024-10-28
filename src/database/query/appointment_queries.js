@@ -1,4 +1,5 @@
-export const processAppointment = `INSERT INTO appointments (
+export const processAppointment = `
+    INSERT INTO appointments (
         appointment_id,
         patient_id,
         doctor_id,
@@ -17,9 +18,11 @@ export const processAppointment = `INSERT INTO appointments (
         appointment_end,
         estimate,
         urgency,
+        status,
         created_at
     )
-    WITH CTE AS (
+   
+   WITH CTE AS (
         SELECT
             a.appointment_id, 
             a.patient_id,
@@ -37,7 +40,8 @@ export const processAppointment = `INSERT INTO appointments (
             a.appointment_date, 
             a.estimate, 
             a.urgency, 
-            d.hours_start, 
+            d.hours_start,
+            a.status,
             (EXTRACT(HOUR FROM d.hours_start) * 60) + EXTRACT(MINUTE FROM d.hours_start) AS doctor_schedule_start,
             a.created_at
         FROM 
@@ -69,6 +73,7 @@ export const processAppointment = `INSERT INTO appointments (
             estimate, 
             urgency, 
             hours_start,
+            status,
             created_at,
             CASE 
                 WHEN urgency >= 9 THEN 1
@@ -99,8 +104,9 @@ export const processAppointment = `INSERT INTO appointments (
             urgency,
             hours_start,
             urgency_rank,
-            ROW_NUMBER() OVER (ORDER BY urgency_rank, created_at) AS row_num, 
-            SUM(estimate) OVER (ORDER BY urgency_rank, created_at) + COALESCE(doctor_schedule_start, 0) AS appointment_end,
+	    ROW_NUMBER() OVER (PARTITION BY STATUS != 'Cancelled' ORDER BY urgency_rank, created_at) AS row_num, 
+	    SUM(CASE WHEN STATUS != 'Cancelled' THEN estimate ELSE 0 END) OVER (ORDER BY urgency_rank, created_at) + COALESCE(doctor_schedule_start, 0) AS appointment_end,
+            status,
             created_at
         FROM 
             CTE_Ranked
@@ -121,6 +127,7 @@ export const processAppointment = `INSERT INTO appointments (
         temperature,
         appointment_date,
         CASE 
+            WHEN STATUS = 'Cancelled' THEN '--:--'
             WHEN row_num > 1 THEN 
                 CONCAT(
                     LPAD(FLOOR(LAG(appointment_end) OVER (ORDER BY urgency_rank, created_at) / 60), 2, '0'), ':', 
@@ -132,12 +139,17 @@ export const processAppointment = `INSERT INTO appointments (
                     LPAD(doctor_schedule_start % 60, 2, '0')
                 )
         END AS appointment_start,
-        CONCAT(
+        CASE
+            WHEN STATUS = 'Cancelled' THEN '--:--'
+            ELSE
+             CONCAT(
             LPAD(FLOOR(appointment_end / 60), 2, '0'), ':', 
             LPAD(appointment_end % 60, 2, '0')
-        ) AS appointment_end, 
+        )
+            END AS appointment_end,
         estimate, 
         urgency,
+        status,
         created_at
     FROM 
         CTE_Cumulative
@@ -158,14 +170,15 @@ export const processAppointment = `INSERT INTO appointments (
         appointment_end = VALUES(appointment_end),
         estimate = VALUES(estimate),
         urgency = VALUES(urgency),
-        created_at = VALUES(created_at);
-`;
+        status = VALUES(status),
+        created_at = VALUES(created_at)
+     `;
 
 export const insertToBufferAppointment = `
       INSERT INTO buffer_appointments 
       (patient_id, doctor_id, alcohol_consumption, smoking, height, weight,
-       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature, estimate,appointment_date,urgency)  
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)
+       breathing_trouble, pain_level, pain_part, medical_concern, symptoms, temperature,appointment_date, estimate,urgency,status)  
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?)
     `;
 
 export const getAppointmentByPatientId = `
@@ -180,7 +193,8 @@ export const getAppointmentByPatientId = `
     a.appointment_date, 
     a.appointment_start,
     a.appointment_end,
-      a.symptoms,
+    a.symptoms,
+    a.findings,
     a.weight,
     a.height,
     a.alcohol_consumption,

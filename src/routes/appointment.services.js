@@ -7,6 +7,7 @@ import {
   checkForAppointmentDuplicate,
   getAppointmentByDoctorId,
 } from "../database/query/appointment_queries.js";
+import moment from "moment";
 
 import {
   findAvailableSlots,
@@ -14,35 +15,35 @@ import {
 } from "../controllers/assistant/appointment.js";
 const router = express.Router();
 
+const timeToMinutes = (time) => {
+  const [hours, minutes] = time.split(":").map(Number);
+  return hours * 60 + minutes;
+};
+
 router.get("/", async (req, res) => {
   res.send("Appointment Services!");
 });
 
-// PARAMETERS
-// {
-//   "doctor_id":"7",
-//   "appointment_date": "2024-10-23"
-// }
 router.post("/available-doctor", async (req, res) => {
   const payload = req.body;
 
-  let getDoctorOperatingHour = "SELECT doh.doctor_id, `limit` FROM doctors AS d INNER JOIN doctor_operating_hours doh ON doh.doctor_id = d.doctor_id WHERE d.doctor_id = ?  AND doh.day = ?";
+  let getDoctorOperatingHour =
+    "SELECT doh.doctor_id, `limit` FROM doctors AS d INNER JOIN doctor_operating_hours doh ON doh.doctor_id = d.doctor_id WHERE d.doctor_id = ?  AND doh.day = ?";
 
-  db.query(getDoctorOperatingHour,
-    [payload.doctor_id, payload.appointment_date], 
+  db.query(
+    getDoctorOperatingHour,
+    [payload.doctor_id, payload.appointment_date],
     async (err, res) => {
       if (res.length === 0) {
-        return res
-          .status(401)
-          .json({ status: false, message: "Doctor does not have schedule for selected date." });
+        return res.status(401).json({
+          status: false,
+          message: "Doctor does not have schedule for selected date.",
+        });
       }
-
-      
-  })
+    }
+  );
 
   try {
-    
-
     db.query(
       getDoctors,
       [payload.doctor_id, payload.appointment_date],
@@ -146,9 +147,10 @@ router.post("/appointment-settler", async (req, res) => {
             payload.medicalConcern,
             payload.symptoms,
             payload.temperature,
-            payload.estimate,
             payload.appointmentDate,
-            payload.urgency
+            payload.estimate,
+            payload.urgency,
+            payload.status,
           ],
           (error, results) => {
             if (error) {
@@ -266,6 +268,40 @@ router.get("/appointment-patient", async (req, res) => {
   });
 });
 
+router.post("/update-appointment-summary", async (req, res) => {
+  const payload = req.body;
+
+  const updateSummaryQuery =
+    "UPDATE appointments SET findings = ? WHERE appointment_id = ?";
+
+  const summary = `{ findings: ${payload.summary}, lab_request: [${payload.equipments}] }`;
+  db.query(
+    updateSummaryQuery,
+    [summary, payload.appointment_id],
+    async (err, results) => {
+      return res.status(200).send({
+        status: true,
+        data: summary,
+      });
+    }
+  );
+});
+
+router.post("/save", async (req, res) => {
+  const payload = req.body;
+
+  const getAllAppointmentsByDateAndDoctorId =
+    "SELECT * FROM appointments WHERE appointment_date = ? AND doctor_id = ? AND status = 'Waiting'";
+  db.query(
+    getAllAppointmentsByDateAndDoctorId,
+    [payload.appointmentDate, payload.doctorId],
+    async (req, result) => {
+      return res.send({
+        result: result,
+      });
+    }
+  );
+});
 
 router.post("/update", async (req, res) => {
   const payload = req.body;
@@ -273,31 +309,87 @@ router.post("/update", async (req, res) => {
   const appointmentsQuery = `SELECT * FROM appointments WHERE appointment_id = ?`;
   db.query(appointmentsQuery, [payload.appointment_id], (err, results) => {
     if (results.length < 1) {
-      return res.status(404).send({
-        status: false,
-        message: "No appointment found",
+      return res
+        .status(404)
+        .send({ status: false, message: "No appointment found" });
+    }
+
+    const doctorId = results[0].doctor_id;
+    const appointmentDate = results[0].appointment_date;
+    db.beginTransaction((err) => {
+      // let updateFields = [payload.status];
+      let updateQuery = `UPDATE buffer_appointments SET status = ? WHERE appointment_id = ?`;
+
+      // const currentTime = moment().format("HH:mm");
+
+      // if (payload.status === "Ongoing") {
+      //   updateQuery += `, actual_start = ?`;
+      //   updateFields.push(timeToMinutes(currentTime));
+      // } else if (payload.status === "Completed") {
+      //   updateQuery += `, actual_end = ?`;
+      //   updateFields.push(timeToMinutes(currentTime));
+      // }
+
+      // updateQuery += ` WHERE appointment_id = ?`;
+      // updateFields.push(payload.appointment_id);
+
+      db.query(
+        updateQuery,
+        [payload.status, payload.appointment_id],
+        (err, result1) => {
+          if (result1.changedRows > 0) {
+            db.query(
+              processAppointment,
+              [appointmentDate, doctorId],
+              (error, processResult) => {
+                if (error || processResult.affectedRows < 1) {
+                  return db.rollback(() => {
+                    res.status(500).json({
+                      status: false,
+                      data: "Error processing appointment, rolling back changes",
+                    });
+                  });
+                }
+
+                db.commit((err) => {
+                  if (err) {
+                    return db.rollback(() => {
+                      console.error("Transaction commit failed:", err);
+                      res.status(500).json({ data: "Transaction failed" });
+                    });
+                  }
+
+                  res.status(200).json({ data: processResult });
+                });
+              }
+            );
+          } else {
+            return res.status(200).send({
+              status: false,
+              message: "No changes made to the appointment",
+              appointment_status: payload.status,
+            });
+          }
+        }
+      );
+    });
+  });
+});
+
+router.get("/get-equipments", async (req, res) => {
+  const query = "SELECT * FROM equipments";
+  db.query(query, async (req, results) => {
+    if (results.length < 1) {
+      return res.status(200).send({
+        message: "No equipments found",
       });
     }
 
-    const updateAppointmentQuery = `UPDATE appointments SET status = ? WHERE appointment_id = ?`;
-    db.query(
-      updateAppointmentQuery,
-      [payload.status, payload.appointment_id],
-      (err, result1) => {
-        if (result1.changedRows > 0) {
-          return res.status(200).send({
-            status: true,
-            message: `Appointment status changed to ${payload.status}`,
-          });
-        } else {
-          return res.status(200).send({
-            status: false,
-            message: "No changes made to the appointment status",
-            appointment_status: payload.status,
-          });
-        }
-      }
-    );
+    return res.status(200).send({
+      message: "Equipments found",
+      data: results,
+    });
   });
 });
+
 export default router;
