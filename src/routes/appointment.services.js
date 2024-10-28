@@ -313,7 +313,12 @@ router.post("/lab-request", async (req, res) => {
   const query = `INSERT INTO lab_appointments (patient_id,  equipment_id, appointment_date, status) VALUES (?, ?, ?, ?)`;
   db.query(
     query,
-    [payload.patientId, payload.equipment_id, payload.appointment_date, "Waiting"],
+    [
+      payload.patientId,
+      payload.equipment_id,
+      payload.appointment_date,
+      "Waiting",
+    ],
     async (req, result) => {
       res.status(200).json({ data: result });
     }
@@ -376,7 +381,14 @@ router.post("/update", async (req, res) => {
                     });
                   }
 
-                  res.status(200).json({ data: processResult });
+                  res
+                    .status(200)
+                    .json({
+                      status: true,
+                      data: processResult,
+                      message: "Appointment status changed!",
+                      appointment_status: payload.status,
+                    });
                 });
               }
             );
