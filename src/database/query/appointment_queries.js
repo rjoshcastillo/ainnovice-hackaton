@@ -226,6 +226,7 @@ export const getAppointmentByDoctorId = `
     a.height,
     a.alcohol_consumption,
     a.smoking,
+    a.urgency,
     a.created_at
 FROM appointments AS a
 JOIN patients AS p ON p.patient_id = a.patient_id
